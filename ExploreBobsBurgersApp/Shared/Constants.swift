@@ -8,8 +8,10 @@
 import Foundation
 
 struct Constants {
-    static let imageBbBgBlueStr = "bBBgBlue"
-    static let imageBbLogoStr = "bBLogo"
+    public static let imageBbBgBlueStr = "bBBgBlue"
+    public static let imageBbLogoStr = "bBLogo"
+    
+    public static let fontStr = "ShortStack-Regular.ttf"
 }
 
 enum CategoriesEnum: CaseIterable {

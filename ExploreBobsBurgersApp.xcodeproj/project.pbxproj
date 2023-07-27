@@ -15,6 +15,8 @@
 		B86189A52A72F5310043AAD3 /* ExploreBobsBurgers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86189A32A72F5310043AAD3 /* ExploreBobsBurgers.xcdatamodeld */; };
 		B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189AD2A72F6110043AAD3 /* HomeView.swift */; };
 		B86189B32A72F69A0043AAD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189B22A72F69A0043AAD3 /* Constants.swift */; };
+		B86189B62A72FBA70043AAD3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189B52A72FBA70043AAD3 /* Extension.swift */; };
+		B86189B82A72FC890043AAD3 /* ShortStack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B86189B72A72FC890043AAD3 /* ShortStack-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		B86189A42A72F5310043AAD3 /* ExploreBobsBurgersApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExploreBobsBurgersApp.xcdatamodel; sourceTree = "<group>"; };
 		B86189AD2A72F6110043AAD3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B86189B22A72F69A0043AAD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B86189B52A72FBA70043AAD3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B86189B72A72FC890043AAD3 /* ShortStack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShortStack-Regular.ttf"; sourceTree = "<group>"; };
+		B86189B92A72FCAA0043AAD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +64,12 @@
 		B86189972A72F5310043AAD3 /* ExploreBobsBurgersApp */ = {
 			isa = PBXGroup;
 			children = (
+				B86189B92A72FCAA0043AAD3 /* Info.plist */,
 				B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */,
 				B86189AC2A72F58D0043AAD3 /* Views */,
 				B86189B02A72F6600043AAD3 /* Models */,
 				B86189AF2A72F6470043AAD3 /* ViewModels */,
-				B86189B22A72F69A0043AAD3 /* Constants.swift */,
+				B86189B42A72FB840043AAD3 /* Shared */,
 				B86189B12A72F67C0043AAD3 /* Services */,
 				B861899C2A72F5310043AAD3 /* Assets.xcassets */,
 				B861899E2A72F5310043AAD3 /* Preview Content */,
@@ -117,6 +123,16 @@
 				B86189AB2A72F56B0043AAD3 /* CoreData */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		B86189B42A72FB840043AAD3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B86189B72A72FC890043AAD3 /* ShortStack-Regular.ttf */,
+				B86189B22A72F69A0043AAD3 /* Constants.swift */,
+				B86189B52A72FBA70043AAD3 /* Extension.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B86189A02A72F5310043AAD3 /* Preview Assets.xcassets in Resources */,
+				B86189B82A72FC890043AAD3 /* ShortStack-Regular.ttf in Resources */,
 				B861899D2A72F5310043AAD3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +208,7 @@
 			files = (
 				B86189A22A72F5310043AAD3 /* Persistence.swift in Sources */,
 				B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */,
+				B86189B62A72FBA70043AAD3 /* Extension.swift in Sources */,
 				B86189A52A72F5310043AAD3 /* ExploreBobsBurgers.xcdatamodeld in Sources */,
 				B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */,
 				B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */,
@@ -326,11 +344,13 @@
 				DEVELOPMENT_TEAM = 8XY4N5L3NU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExploreBobsBurgersApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,11 +378,13 @@
 				DEVELOPMENT_TEAM = 8XY4N5L3NU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExploreBobsBurgersApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

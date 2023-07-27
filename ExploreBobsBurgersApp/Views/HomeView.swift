@@ -10,10 +10,14 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         VStack {
+            Text("Hello")
+                .font(.custom(Constants.fontStr, size: 30))
+                      
             Image(Constants.imageBbLogoStr)
                 .resizable()
                 .scaledToFit()
                 .padding()
+                      
             Spacer()
         }
         .background {
