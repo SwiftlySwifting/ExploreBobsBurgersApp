@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */; };
 		B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */; };
 		B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861899A2A72F5310043AAD3 /* ContentView.swift */; };
 		B861899D2A72F5310043AAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B861899C2A72F5310043AAD3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLabel.swift; sourceTree = "<group>"; };
 		B86189952A72F5310043AAD3 /* ExploreBobsBurgersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreBobsBurgersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBobsBurgers.swift; sourceTree = "<group>"; };
 		B861899A2A72F5310043AAD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B86189AD2A72F6110043AAD3 /* HomeView.swift */,
+				B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				B86189A22A72F5310043AAD3 /* Persistence.swift in Sources */,
 				B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */,
+				B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */,
 				B86189B62A72FBA70043AAD3 /* Extension.swift in Sources */,
 				B86189A52A72F5310043AAD3 /* ExploreBobsBurgers.xcdatamodeld in Sources */,
 				B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */,
@@ -269,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -323,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

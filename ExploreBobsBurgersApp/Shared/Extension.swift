@@ -10,56 +10,62 @@ import SwiftUI
 
 extension Font {
     
-    public static var test: Font {
-        return Font.custom(Constants.fontStr, size: 40)
+    public static var appHomeTitle: Font {
+        return Font.custom(Constants.fontStr, size: 30)
     }
-    
+        
     /// Create a font with the large title text style.
-    public static var largeTitle: Font {
+    public static var appLargeTitle: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)
     }
 
     /// Create a font with the title text style.
-    public static var title: Font {
+    public static var appTitle: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .title1).pointSize)
     }
 
-    public static var title2: Font {
+    public static var appTitle2: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .title2).pointSize)
     }
     
-    public static var title3: Font {
+    public static var appTitle3: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .title3).pointSize)
     }
 
     /// Create a font with the headline text style.
-    public static var headline: Font {
+    public static var appHeadline: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .headline).pointSize)
     }
 
     /// Create a font with the subheadline text style.
-    public static var subheadline: Font {
+    public static var appSubheadline: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .subheadline).pointSize)
     }
 
     /// Create a font with the body text style.
-    public static var body: Font {
+    public static var appBody: Font {
            return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .body).pointSize)
        }
 
     /// Create a font with the callout text style.
-    public static var callout: Font {
+    public static var appCallout: Font {
            return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .callout).pointSize)
        }
 
     /// Create a font with the footnote text style.
-    public static var footnote: Font {
+    public static var appFootnote: Font {
            return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .footnote).pointSize)
        }
 
     /// Create a font with the caption text style.
-    public static var caption: Font {
+    public static var appCaption: Font {
            return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .caption1).pointSize)
        }
+}
+
+extension Color {
+    static var bobRed: Color {
+        return Color(Constants.colorBobRed)
+    }
 }
 
