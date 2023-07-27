@@ -21,11 +21,11 @@ enum CategoriesEnum: CaseIterable {
     case episodes
     case favorites
     
-    var image: String {
+    var imageStr: String {
         switch self {
-        case .characters: return ""
-        case .episodes: return ""
-        case .favorites: return ""
+        case .characters: return "bBCatCharacters_v1_1080"
+        case .episodes: return "bBCatEpisodes_v1_1080"
+        case .favorites: return "bBCatFavorites_v1_1080"
         }
     }
     

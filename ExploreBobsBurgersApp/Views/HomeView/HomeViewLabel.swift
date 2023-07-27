@@ -17,7 +17,7 @@ struct HomeViewLabel: View {
             .foregroundColor(.bobRed)
             .background {
                 Rectangle()
-                    .frame(width: 225, height: 60)
+                    .frame(width: 225, height: 50)
                     .foregroundColor(.white)
                     .shadow(color: .gray, radius: 3, x: 1, y: 1)
             }

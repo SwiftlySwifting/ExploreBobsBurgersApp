@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */; };
+		B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC32A73168300FDF93C /* CategoryView.swift */; };
 		B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */; };
 		B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861899A2A72F5310043AAD3 /* ContentView.swift */; };
 		B861899D2A72F5310043AAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B861899C2A72F5310043AAD3 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLabel.swift; sourceTree = "<group>"; };
+		B85BDAC32A73168300FDF93C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B86189952A72F5310043AAD3 /* ExploreBobsBurgersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreBobsBurgersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBobsBurgers.swift; sourceTree = "<group>"; };
 		B861899A2A72F5310043AAD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B85BDAC22A7310D600FDF93C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B86189AD2A72F6110043AAD3 /* HomeView.swift */,
+				B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */,
+				B85BDAC32A73168300FDF93C /* CategoryView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		B861898C2A72F5300043AAD3 = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +112,7 @@
 		B86189AC2A72F58D0043AAD3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B86189AD2A72F6110043AAD3 /* HomeView.swift */,
-				B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */,
+				B85BDAC22A7310D600FDF93C /* HomeView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +228,7 @@
 				B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */,
 				B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */,
 				B86189B32A72F69A0043AAD3 /* Constants.swift in Sources */,
+				B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
