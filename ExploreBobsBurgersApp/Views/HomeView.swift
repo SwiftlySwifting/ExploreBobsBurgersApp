@@ -9,8 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(Constants.imageBbLogoStr)
+                .resizable()
+                .scaledToFit()
+                .padding()
+            Spacer()
+        }
+        .background {
+            Image(Constants.imageBbBgBlueStr)
+                .resizable()
+                .scaledToFill()
+        }
     }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
