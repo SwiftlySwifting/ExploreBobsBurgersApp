@@ -8,10 +8,18 @@
 import Foundation
 import SwiftUI
 
+extension Color {
+    
+    static let bBRed = Color("bBRed")
+    static let bBBlue = Color("bBBlue")
+    static let shadowColor = Color(.gray).opacity(0.5)
+    
+}
+
 extension Font {
     
     public static var appHomeTitle: Font {
-        return Font.custom(Constants.fontStr, size: 25)
+        return Font.custom(Constants.fontStr, size: 20)
     }
         
     /// Create a font with the large title text style.
@@ -63,11 +71,5 @@ extension Font {
        }
 }
 
-extension Color {
-    
-    static let bobRed = Color("bobRed")
-    static let shadowColor = Color(.gray).opacity(0.5)
-        
-    
-}
+
 

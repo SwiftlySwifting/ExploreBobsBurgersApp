@@ -15,10 +15,8 @@ struct SwitchContainerView: View {
         switch vm.currentViewState {
         case .home:
             HomeView()
-//                .transition(AnyTransition.move(edge: .leading))
         case .characters:
             CharactersHomeView()
-//                .transition(AnyTransition.move(edge: .leading))
         case .episodes:
             EmptyView()
         case .favorites:

@@ -26,7 +26,7 @@ struct HomeView: View {
                     HomeViewLabel(label: "Explore")
                         .offset(y: -30)
                 }
-                .padding(.top, 40)
+                .padding(.top, 30)
                 .padding()
 
                 ScrollView {
