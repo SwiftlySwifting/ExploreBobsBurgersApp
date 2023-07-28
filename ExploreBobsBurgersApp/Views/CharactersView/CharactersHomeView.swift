@@ -11,6 +11,14 @@ struct CharactersHomeView: View {
     
     @EnvironmentObject private var vm: ViewModel
     
+    private var columns:[GridItem] {
+            let columns = [
+                GridItem(.flexible(), spacing: 5),
+                GridItem(.flexible(), spacing: 5)
+            ]
+            return columns
+        }
+    
     var body: some View {
         VStack {
             //Title and button
@@ -22,6 +30,14 @@ struct CharactersHomeView: View {
                         NavigationButton(label: Constants.sfBack)
                     }
                     Spacer()
+                    
+                    Button {
+                        Task {
+                            await vm.fetchAllCharacters()
+                        }
+                    } label: {
+                        Text("fetch")
+                    }
                 }
                 .padding(.leading)
                 
@@ -30,16 +46,17 @@ struct CharactersHomeView: View {
             .padding(.bottom, 30)
             .background {
                 Color.bBBlue.ignoresSafeArea()
-                
             }
             
-//            ScrollView {
-//                ForEach(0..<20, id: \.self) {int in
-//                    Rectangle()
-//                        .foregroundColor(.blue).opacity(0.3)
-//                        .aspectRatio(1, contentMode: .fill)
-//                }
-//            }
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(vm.allCharacters) {char in
+                        CharactersHomeListCellView(character: char)
+                    
+                    }
+                }
+           
+            }
             
             Spacer()
         }
@@ -49,5 +66,6 @@ struct CharactersHomeView: View {
 struct CharactersHomeView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersHomeView()
+            .previewData()
     }
 }

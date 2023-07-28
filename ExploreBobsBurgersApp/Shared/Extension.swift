@@ -21,7 +21,7 @@ extension Font {
     public static var appHomeTitle: Font {
         return Font.custom(Constants.fontStr, size: 20)
     }
-        
+            
     /// Create a font with the large title text style.
     public static var appLargeTitle: Font {
         return Font.custom(Constants.fontStr, size: UIFont.preferredFont(forTextStyle: .largeTitle).pointSize)

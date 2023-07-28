@@ -7,9 +7,21 @@
 
 import Foundation
 
+@MainActor
 class ViewModel: ObservableObject {
     
     @Published var currentViewState: ViewStateEnum = .home
+    @Published var allCharacters:[CharacterModel] = []
+    
+    func fetchAllCharacters() async {
+        do {
+            let allChars = try await Webservice().getAllCharacters()
+            allCharacters = allChars
+        }
+        catch {
+            print(error)
+        }
+    }
     
     func changeViews(category: CategoriesEnum) {
         switch category {
