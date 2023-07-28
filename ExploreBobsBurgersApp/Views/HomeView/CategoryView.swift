@@ -12,10 +12,17 @@ struct CategoryView: View {
     var category: CategoriesEnum
     
     var body: some View {
-        Image(category.imageStr)
-            .resizable()
-            .scaledToFit()
-            .padding()
+        ZStack(alignment: .bottom) {
+            Image(category.imageStr)
+                .resizable()
+                .scaledToFit()
+                .shadow(color: .gray, radius: 3, x: 1, y: 1)
+
+            HomeViewLabel(label: category.label)
+                .offset(y: 15)
+
+        }
+        .padding()
     }
 }
 

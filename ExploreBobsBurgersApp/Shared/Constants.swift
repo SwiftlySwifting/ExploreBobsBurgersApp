@@ -12,8 +12,6 @@ struct Constants {
     static let imageBbLogoStr = "bBLogo"
     
     static let fontStr = "ShortStack"
-    
-    static let colorBobRed = "bobRed"
 }
 
 enum CategoriesEnum: CaseIterable {

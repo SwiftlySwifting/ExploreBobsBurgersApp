@@ -11,7 +11,7 @@ import SwiftUI
 extension Font {
     
     public static var appHomeTitle: Font {
-        return Font.custom(Constants.fontStr, size: 30)
+        return Font.custom(Constants.fontStr, size: 25)
     }
         
     /// Create a font with the large title text style.
@@ -64,8 +64,10 @@ extension Font {
 }
 
 extension Color {
-    static var bobRed: Color {
-        return Color(Constants.colorBobRed)
-    }
+    
+    static let bobRed = Color("bobRed")
+    static let shadowColor = Color(.gray).opacity(0.5)
+        
+    
 }
 

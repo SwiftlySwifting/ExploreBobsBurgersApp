@@ -19,11 +19,13 @@ struct HomeView: View {
                     Image(Constants.imageBbLogoStr)
                         .resizable()
                         .scaledToFit()
+                        .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
                     HomeViewLabel(label: "Explore")
                         .offset(y: -30)
                 }
                 .padding(.top, 40)
                 .padding()
+                
                 ScrollView {
                     ForEach(CategoriesEnum.allCases, id: \.self) {cat in
                         CategoryView(category: cat)
