@@ -13,36 +13,35 @@ struct CharactersHomeListCellView: View {
     
     var body: some View {
         
-        
         ZStack {
             Color.bBBlue
-                .aspectRatio(0.80, contentMode: .fit)
+                .aspectRatio(0.85, contentMode: .fit)
                 .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             
-            GeometryReader { geo in
-                Image(character.image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
-                    .clipped()
-                    .background {
-                        Color.white
-                    }
-            }
-            
-            .padding()
-            
             VStack {
-                Spacer()
+                GeometryReader { geo in
+                    Image(character.image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
+                        .clipped()
+                        .background {
+                            Color.white
+                        }
+                        .frame(width: geo.size.width, height: geo.size.height)
+
+                }
+                .padding()
+  
                 Text(character.name)
                     .font(.appCaption)
                     .foregroundColor(.white)
-                    .padding(.bottom)
                     .multilineTextAlignment(.center)
-                
+                    .padding(.bottom)
+                    .padding(.horizontal, 5)
             }
         }
-        .padding()
+        .padding(.all, 10)
     }
 }
 
