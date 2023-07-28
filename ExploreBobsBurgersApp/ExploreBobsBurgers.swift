@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct ExploreBobsBurgers: App {
+    
+    @StateObject private var vm = ViewModel()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SwitchContainerView()
+                .environmentObject(vm)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

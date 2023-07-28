@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject private var vm: ViewModel
+
     var body: some View {
         ZStack {
             Image(Constants.imageBbBgBlueStr)
@@ -25,13 +28,18 @@ struct HomeView: View {
                 }
                 .padding(.top, 40)
                 .padding()
-                
+
                 ScrollView {
                     ForEach(CategoriesEnum.allCases, id: \.self) {cat in
-                        CategoryView(category: cat)
+                        Button {
+                            withAnimation {
+                                vm.changeViews(category: cat)
+                            }
+                        } label: {
+                            CategoryView(category: cat)
+                        }
                     }
                 }
-                
             }
         }
     }
