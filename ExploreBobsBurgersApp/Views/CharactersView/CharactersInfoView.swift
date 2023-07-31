@@ -43,8 +43,9 @@ struct CharactersInfoView: View {
             
             ScrollView {
                 ZStack(alignment: .top) {
+                    
                     Color.bBBlue
-
+                    
                     UrlImage(urlString: vm.selectedCharModel!.image)
                         .scaledToFill()
                         .frame(width: 200, alignment: .top)
@@ -53,6 +54,9 @@ struct CharactersInfoView: View {
                         }
                         .padding(.vertical)
                 }
+                
+                CharacterInfoList(character: vm.selectedCharModel!)
+                
             }
             
             Spacer()

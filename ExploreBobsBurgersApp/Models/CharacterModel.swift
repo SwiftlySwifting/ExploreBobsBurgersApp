@@ -10,6 +10,7 @@ import Foundation
 struct CharacterModel: Identifiable, Codable {
     var id: Int
     var name: String
+    var age: String?
     var image: String?
     var gender: String?
     var hairColor: String?
