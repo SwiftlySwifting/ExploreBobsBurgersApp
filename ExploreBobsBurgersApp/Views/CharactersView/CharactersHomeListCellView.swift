@@ -20,8 +20,7 @@ struct CharactersHomeListCellView: View {
             
             VStack {
                 GeometryReader { geo in
-                    Image(character.image)
-                        .resizable()
+                    UrlImage(urlString: character.image)
                         .scaledToFill()
                         .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
                         .clipped()
@@ -29,6 +28,32 @@ struct CharactersHomeListCellView: View {
                             Color.white
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
+                    
+//                    AsyncImage(url: URL(string: character.image)) { image in
+//                        image
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
+//                            .clipped()
+//                            .background {
+//                                Color.white
+//                            }
+//                            .frame(width: geo.size.width, height: geo.size.height)
+//                    } placeholder: {
+//                        Color.green
+//                            .frame(width: geo.size.width, height: geo.size.height)
+//
+//                    }
+
+//                    Image(character.image)
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
+//                        .clipped()
+//                        .background {
+//                            Color.white
+//                        }
+//                        .frame(width: geo.size.width, height: geo.size.height)
 
                 }
                 .padding()
