@@ -13,32 +13,32 @@ struct CharactersHomeListCellView: View {
     
     var body: some View {
         
-        ZStack {
+        ZStack(alignment: .top) {
             Color.bBBlue
                 .aspectRatio(0.80, contentMode: .fit)
                 .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             
             VStack {
-                GeometryReader { geo in
-                    UrlImage(urlString: character.image)
-                        .scaledToFill()
-                        .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
-                        .clipped()
-                        .background {
-                            Color.white
-                        }
-                        .frame(width: geo.size.width, height: geo.size.height)
-                }
-                .padding()
-  
+                UrlImage(urlString: character.image)
+                    .scaledToFill()
+                    .frame(width: 150,
+                           height: 150,
+                           alignment: .top)
+                    .clipped()
+                    .background {
+                        Color.white
+                    }
+                
+                Spacer()
+                
                 Text(character.name)
                     .font(.appCaption)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .padding(.bottom)
-                    .padding(.horizontal, 5)
                 
+                Spacer()
             }
+            .padding(.all, 10)
         }
         .padding(.all, 10)
     }
