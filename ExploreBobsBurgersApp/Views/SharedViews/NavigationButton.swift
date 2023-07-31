@@ -13,13 +13,13 @@ struct NavigationButton: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .frame(width: 50, height: 50)
-                .foregroundColor(.white)
-                .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
+//            Rectangle()
+//                .frame(width: 50, height: 50)
+//                .foregroundColor(.white)
+//                .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             Image(systemName: label)
                 .font(.appHomeTitle)
-                .foregroundColor(.bBRed)
+                .foregroundColor(.white)
         }
     }
 }

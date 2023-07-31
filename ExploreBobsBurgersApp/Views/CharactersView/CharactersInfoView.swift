@@ -10,18 +10,53 @@ import SwiftUI
 struct CharactersInfoView: View {
     
     @EnvironmentObject private var vm: ViewModel
-        
+    
     var body: some View {
         
-        VStack {
-            Button {
-                vm.currentViewState = .characters
-            } label: {
-                Text("Back")
+        VStack(spacing: 0) {
+            
+            HStack(alignment: .top) {
+                Button {
+                    vm.currentViewState = .characters
+                } label: {
+                    NavigationButton(label: Constants.sfBack)
+                }
+                Spacer()
+                
+                CharactersSubViewTitle(title: vm.selectedCharModel!.name)
+                
+                Spacer()
+                
+                Button {
+                    Task {
+                        vm.currentViewState = .home
+                    }
+                } label: {
+                    NavigationButton(label: Constants.sfHome)
+                }
             }
+            .padding(.horizontal)
+            .padding(.bottom, 30)
+            .background {
+                Color.bBBlue.ignoresSafeArea()
+            }
+            
+            ScrollView {
+                ZStack(alignment: .top) {
+                    Color.bBBlue
 
-            Text(vm.selectedCharModel!.name)
-
+                    UrlImage(urlString: vm.selectedCharModel!.image)
+                        .scaledToFill()
+                        .frame(width: 200, alignment: .top)
+                        .background {
+                            Color.white
+                        }
+                        .padding(.vertical)
+                }
+            }
+            
+            Spacer()
+            
         }
     }
 }

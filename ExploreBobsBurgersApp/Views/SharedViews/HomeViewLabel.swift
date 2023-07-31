@@ -12,15 +12,15 @@ struct HomeViewLabel: View {
     var label: String
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: 225, height: 50)
-                .foregroundColor(.white)
-                .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
-            Text(label)
-                .font(.appHomeTitle)
-                .foregroundColor(.bBRed)
-        }
+        Text(label)
+            .font(.appTitle3)
+            .foregroundColor(.bBRed)
+            .padding()
+            .background {
+                Rectangle()
+                    .foregroundColor(.white)
+                    .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
+            }
     }
 }
 

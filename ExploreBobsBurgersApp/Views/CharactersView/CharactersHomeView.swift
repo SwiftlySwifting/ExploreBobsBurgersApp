@@ -22,13 +22,17 @@ struct CharactersHomeView: View {
     var body: some View {
         VStack {
             //Title and button
-            ZStack {
                 HStack {
                     Button {
                         vm.currentViewState = .home
                     } label: {
                         NavigationButton(label: Constants.sfBack)
                     }
+                    
+                    Spacer()
+                    
+                    CharactersSubViewTitle(title:  CategoriesEnum.characters.label)
+                    
                     Spacer()
                     
                     Button {
@@ -38,11 +42,9 @@ struct CharactersHomeView: View {
                     } label: {
                         Text("fetch")
                     }
-                }
-                .padding(.leading)
                 
-                HomeViewLabel(label: CategoriesEnum.characters.label)
             }
+            .padding(.leading)
             .padding(.bottom, 30)
             .background {
                 Color.bBBlue.ignoresSafeArea()

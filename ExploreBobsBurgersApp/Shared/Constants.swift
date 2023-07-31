@@ -20,7 +20,7 @@ struct Constants {
     static let CHAR_URL = BASE_URL + "characters"
     
     static let previewCharacterModel = CharacterModel(id: 1,
-                                                      name: "Dottie Minerv",
+                                                      name: "Andy and Olli Popopolovitch",
                                                       image: "char1",
                                                       gender: "Female",
                                                       hairColor: "Blonde",
