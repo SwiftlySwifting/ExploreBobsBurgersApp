@@ -60,3 +60,9 @@ enum ViewStateEnum {
     case episodes
     case favorites
 }
+
+enum NetworkError: Error {
+    case badRequest
+    case unsupportedImage
+    case badUrl
+}

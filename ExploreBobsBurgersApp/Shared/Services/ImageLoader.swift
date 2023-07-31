@@ -8,11 +8,6 @@
 import Foundation
 import SwiftUI
 
-enum NetworkError: Error {
-    case badRequest
-    case unsupportedImage
-    case badUrl
-}
 
 @MainActor
 class ImageLoader: ObservableObject {

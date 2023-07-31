@@ -15,7 +15,7 @@ struct CharactersHomeListCellView: View {
         
         ZStack {
             Color.bBBlue
-                .aspectRatio(0.85, contentMode: .fit)
+                .aspectRatio(0.80, contentMode: .fit)
                 .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             
             VStack {
@@ -28,33 +28,6 @@ struct CharactersHomeListCellView: View {
                             Color.white
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
-                    
-//                    AsyncImage(url: URL(string: character.image)) { image in
-//                        image
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
-//                            .clipped()
-//                            .background {
-//                                Color.white
-//                            }
-//                            .frame(width: geo.size.width, height: geo.size.height)
-//                    } placeholder: {
-//                        Color.green
-//                            .frame(width: geo.size.width, height: geo.size.height)
-//
-//                    }
-
-//                    Image(character.image)
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: geo.size.width, height: geo.size.width, alignment: .top)
-//                        .clipped()
-//                        .background {
-//                            Color.white
-//                        }
-//                        .frame(width: geo.size.width, height: geo.size.height)
-
                 }
                 .padding()
   
@@ -64,6 +37,7 @@ struct CharactersHomeListCellView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
                     .padding(.horizontal, 5)
+                
             }
         }
         .padding(.all, 10)

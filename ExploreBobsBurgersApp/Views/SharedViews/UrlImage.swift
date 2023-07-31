@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UrlImage: View {
     
-    @ObservedObject private var imageLoader = ImageLoader()
+    @ObservedObject var imageLoader = ImageLoader()
     let urlString: String?
     
     var body: some View {
@@ -23,16 +23,12 @@ struct UrlImage: View {
             }
         }
         .task {
-            await downLoadImage()
-        }
-    }
-    
-    private func downLoadImage() async {
-        do {
-            try await imageLoader.fetchImage(urlString: urlString)
-        }
-        catch {
-            print(error)
+            do {
+                try await imageLoader.fetchImage(urlString: urlString)
+            }
+            catch {
+                print(error)
+            }
         }
     }
 }
