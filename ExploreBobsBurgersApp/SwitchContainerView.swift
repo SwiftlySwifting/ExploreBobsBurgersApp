@@ -17,6 +17,8 @@ struct SwitchContainerView: View {
             HomeView()
         case .characters:
             CharactersHomeView()
+        case .characterInfo:
+            CharactersInfoView()
         case .episodes:
             EmptyView()
         case .favorites:
@@ -28,5 +30,6 @@ struct SwitchContainerView: View {
 struct SwitchContainerView_Previews: PreviewProvider {
     static var previews: some View {
         SwitchContainerView()
+            .previewData()
     }
 }

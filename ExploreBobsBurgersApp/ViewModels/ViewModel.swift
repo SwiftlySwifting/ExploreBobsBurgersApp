@@ -12,6 +12,7 @@ class ViewModel: ObservableObject {
     
     @Published var currentViewState: ViewStateEnum = .home
     @Published var allCharacters:[CharacterModel] = []
+    @Published var selectedCharModel: CharacterModel?
     
     func fetchAllCharacters() async {
         do {

@@ -57,6 +57,7 @@ enum CategoriesEnum: CaseIterable {
 enum ViewStateEnum {
     case home
     case characters
+    case characterInfo
     case episodes
     case favorites
 }

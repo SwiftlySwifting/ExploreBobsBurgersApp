@@ -47,11 +47,19 @@ struct CharactersHomeView: View {
             .background {
                 Color.bBBlue.ignoresSafeArea()
             }
-            
+        
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(vm.allCharacters) {char in
-                        CharactersHomeListCellView(character: char)
+                        Button {
+                            vm.selectedCharModel = char
+                            if vm.selectedCharModel != nil {
+                                vm.currentViewState = .characterInfo
+                            }
+                            
+                        } label: {
+                            CharactersHomeListCellView(character: char)
+                        }
                     
                     }
                 }

@@ -35,6 +35,7 @@ struct PreviewData: ViewModifier {
                                                  relatives: []))
                 }
                 object.allCharacters = models
+                object.selectedCharModel = Constants.previewCharacterModel
                 return object
                 
             }())
