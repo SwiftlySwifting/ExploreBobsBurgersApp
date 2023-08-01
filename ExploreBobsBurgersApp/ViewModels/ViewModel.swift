@@ -41,4 +41,17 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func relativeUrlStrFromCharacter(relative: RelativeModel) -> String? {
+        
+        guard let unwrappedUrlStr = relative.url else {
+            return nil
+        }
+        
+        guard let url = URL(string: unwrappedUrlStr) else {
+            return nil
+        }
+        let suffix = ".jpg"
+        return Constants.IMAGE_URL + url.lastPathComponent + suffix
+    }
+    
 }

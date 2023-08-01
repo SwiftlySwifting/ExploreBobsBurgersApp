@@ -47,11 +47,13 @@ struct CharacterInfoList: View {
                 
             }
         }
+        .padding(.horizontal)
     }
 }
 
 struct CharacterInfoList_Previews: PreviewProvider {
     static var previews: some View {
         CharacterInfoList(character: Constants.previewCharacterModel)
+            .previewData()
     }
 }

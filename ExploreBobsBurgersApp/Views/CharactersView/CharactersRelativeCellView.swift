@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CharactersRelativeCellView: View {
     
+    @EnvironmentObject private var vm: ViewModel
+    
     var relative: RelativeModel
     
     var body: some View {
@@ -19,11 +21,12 @@ struct CharactersRelativeCellView: View {
                 .frame(height: 125)
                 .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             HStack(alignment: .top) {
-                Image("char1")
-                    .resizable()
+                
+                UrlImage(urlString: vm.relativeUrlStrFromCharacter(relative: relative))
                     .scaledToFill()
                     .frame(width: 100, height: 100, alignment: .top)
                     .clipped()
+                    .background(.white)
                 
                 VStack(alignment: .leading, spacing:5) {
                     
@@ -49,12 +52,12 @@ struct CharactersRelativeCellView: View {
             }
             .padding(.all, 10)
         }
-        .padding(.horizontal)
     }
 }
 
 struct CharactersRelativeCellView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersRelativeCellView(relative: Constants.previewRelativesModelA)
+            .previewData()
     }
 }
