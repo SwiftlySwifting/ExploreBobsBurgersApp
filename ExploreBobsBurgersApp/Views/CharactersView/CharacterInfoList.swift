@@ -37,6 +37,15 @@ struct CharacterInfoList: View {
                 CharacterInfoListStyle(label: "Voiced by",
                                        info: character.voicedBy!)
             }
+            
+            if !character.relatives.isEmpty {
+                VStack(spacing: 10) {
+                    Text("Relatives:")
+                        .font(.appBody)
+                    CharactersRelativeView(character: character)
+                }
+                
+            }
         }
     }
 }

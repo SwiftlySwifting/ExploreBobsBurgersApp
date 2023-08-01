@@ -14,6 +14,12 @@ class ViewModel: ObservableObject {
     @Published var allCharacters:[CharacterModel] = []
     @Published var selectedCharModel: CharacterModel?
     
+    init() {
+        Task {
+            await fetchAllCharacters()
+        }
+    }
+    
     func fetchAllCharacters() async {
         do {
             let allChars = try await Webservice().getAllCharacters()

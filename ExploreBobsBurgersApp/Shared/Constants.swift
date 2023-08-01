@@ -29,7 +29,19 @@ struct Constants {
                                                       voicedBy: "Wendy Molyneux",
                                                       url: "https://bobsburgers-api.herokuapp.com/characters/1",
                                                       wikiUrl: "https://bobs-burgers.fandom.com/wiki/%22Dottie_Minerva%22",
-                                                      relatives: [])
+                                                      relatives: [previewRelativesModelA, previewRelativesModelB])
+    
+    static let previewRelativesModelA = RelativeModel(id: "64c95b92260cf27ca69c0219",
+                                                      name: "Gloria Genarro",
+                                                      wikiUrl: "https://bobs-burgers.fandom.com/wiki/Gloria_Genarro",
+                                                      relationship: "wife",
+                                                      url: "https://bobsburgers-api.herokuapp.com/characters/178")
+    
+    static let previewRelativesModelB = RelativeModel(id: "64c95b92260cf27ca69c021a",
+                                                      name: "Linda Belcher",
+                                                      wikiUrl: "https://bobs-burgers.fandom.com/wiki/Linda_Belcher",
+                                                      relationship: "older daughter",
+                                                      url: "https://bobsburgers-api.herokuapp.com/characters/275")
 }
 
 enum CategoriesEnum: CaseIterable {

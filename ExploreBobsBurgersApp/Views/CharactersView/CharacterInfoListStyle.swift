@@ -17,7 +17,7 @@ struct CharacterInfoListStyle: View {
             Text(label + ":")
                 .font(.appBody)
             Text(info)
-                .font(.title2)
+                .font(.appTitle2)
                 .multilineTextAlignment(.center)
         }
     }
