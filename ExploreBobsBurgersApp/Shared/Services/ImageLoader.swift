@@ -13,7 +13,7 @@ import SwiftUI
 class ImageLoader: ObservableObject {
     
     @Published var uiImage: UIImage?
-    private static let cache = NSCache<NSString, UIImage>()
+    private let cache = ImageCache.shared
     
     //TODO: load images to disk and memory
     
@@ -26,13 +26,14 @@ class ImageLoader: ObservableObject {
         guard let url = URL(string: urlString) else {
             throw NetworkError.badRequest
         }
+//        print(url.lastPathComponent)
 
         let request = URLRequest(url: url)
         
         //check the cache
         //capital "S" becase cache is static
                 
-        if let cachedImage = Self.cache.object(forKey: url.absoluteString as NSString) {
+        if let cachedImage = cache.object(forKey: url.absoluteString as NSString) {
             uiImage = cachedImage
         }
         else {
@@ -46,7 +47,7 @@ class ImageLoader: ObservableObject {
                 throw NetworkError.unsupportedImage
             }
             //store in cache
-            Self.cache.setObject(image, forKey: url.absoluteString as NSString)
+            cache.setObject(image, forKey: url.absoluteString as NSString)
             
             uiImage = image
         }
