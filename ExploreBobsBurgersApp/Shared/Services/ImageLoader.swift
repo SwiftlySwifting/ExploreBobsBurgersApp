@@ -15,6 +15,8 @@ class ImageLoader: ObservableObject {
     @Published var uiImage: UIImage?
     private static let cache = NSCache<NSString, UIImage>()
     
+    //TODO: load images to disk and memory
+    
     func fetchImage(urlString: String?) async throws {
                 
         guard let urlString = urlString else {

@@ -53,7 +53,7 @@ struct CharactersInfoView: View {
                         .background {
                             Color.white
                         }
-                        .padding(.bottom)
+                        .padding(.vertical)
                     
                     VStack {
                         Spacer()

@@ -10,13 +10,18 @@ import SwiftUI
 struct CharactersRelativeView: View {
     
     var character: CharacterModel
+    @EnvironmentObject private var vm: ViewModel
     
     var body: some View {
         
         LazyVStack(spacing: 10) {
             ForEach(character.relatives) {rel in
-                CharactersRelativeCellView(relative: rel)
-                
+                Button {
+                    vm.fetchCharacterFromRelative(relative: rel)
+                } label: {
+                    CharactersRelativeCellView(relative: rel)
+                }
+                .buttonStyle(.plain)
             }
         }
     }

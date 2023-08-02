@@ -42,16 +42,29 @@ class ViewModel: ObservableObject {
     }
     
     func relativeUrlStrFromCharacter(relative: RelativeModel) -> String? {
-        
-        guard let unwrappedUrlStr = relative.url else {
-            return nil
-        }
-        
-        guard let url = URL(string: unwrappedUrlStr) else {
+        guard let id = characterIdFromRelativeUrl(relative: relative) else {
             return nil
         }
         let suffix = ".jpg"
-        return Constants.IMAGE_URL + url.lastPathComponent + suffix
+        return Constants.IMAGE_URL + id + suffix
+    }
+    
+    func characterIdFromRelativeUrl(relative: RelativeModel) -> String? {
+        guard let unwrappedUrlStr = relative.url else {
+            return nil
+        }
+        guard let url = URL(string: unwrappedUrlStr) else {
+            return nil
+        }
+        return url.lastPathComponent
+    }
+    
+    func fetchCharacterFromRelative(relative: RelativeModel) {
+        guard let id = characterIdFromRelativeUrl(relative: relative) else { return }
+        guard let char = (allCharacters.first { char in
+            char.id == Int(id)
+         }) else { return }
+        selectedCharModel = char
     }
     
     func isCharWikiUrlValid() -> Bool {
