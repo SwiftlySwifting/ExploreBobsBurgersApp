@@ -36,9 +36,8 @@ struct CharactersRelativeCellView: View {
                         Text(relative.name)
                             .font(.appCallout)
                     }
-                    
-                    VStack(alignment: .leading, spacing:0) {
-                        if relative.relationship != nil {
+                    if relative.relationship != nil {
+                        VStack(alignment: .leading, spacing:0) {
                             Text("Relationship:")
                                 .font(.appFootnote)
                             Text(relative.relationship!)

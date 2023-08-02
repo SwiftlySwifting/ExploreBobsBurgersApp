@@ -15,6 +15,7 @@ struct Constants {
     
     static let sfHome = "house.fill"
     static let sfBack = "arrow.backward"
+    static let sfPerson = "person"
     
     static let BASE_URL = "https://bobsburgers-api.herokuapp.com/"
     static let CHAR_URL = BASE_URL + "characters"

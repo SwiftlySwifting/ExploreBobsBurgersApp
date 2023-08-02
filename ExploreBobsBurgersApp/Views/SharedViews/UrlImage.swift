@@ -19,7 +19,7 @@ struct UrlImage: View {
                     .resizable()
             }
             else {
-                Color.purple
+                CharacterPlaceholderView()
             }
         }
         .task {

@@ -25,5 +25,6 @@ struct CharactersRelativeView: View {
 struct CharactersRelativeView_Previews: PreviewProvider {
     static var previews: some View {
         CharactersRelativeView(character: Constants.previewCharacterModel)
+            .previewData()
     }
 }
