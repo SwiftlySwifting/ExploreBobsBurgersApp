@@ -22,12 +22,14 @@ struct UrlImage: View {
                 CharacterPlaceholderView()
             }
         }
-        .task {
-            do {
-                try await imageLoader.fetchImage(urlString: urlString)
-            }
-            catch {
-                print(error)
+        .onAppear {
+            Task {
+                do {
+                    try await imageLoader.fetchImage(urlString: urlString)
+                }
+                catch {
+                    print(error)
+                }
             }
         }
     }

@@ -54,4 +54,12 @@ class ViewModel: ObservableObject {
         return Constants.IMAGE_URL + url.lastPathComponent + suffix
     }
     
+    func isCharWikiUrlValid() -> Bool {
+        if selectedCharModel != nil {
+            if selectedCharModel!.wikiUrl != nil {
+                return true
+            } else { return false }
+        } else { return false }
+    }
+    
 }

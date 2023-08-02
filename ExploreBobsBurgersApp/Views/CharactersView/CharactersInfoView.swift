@@ -10,6 +10,7 @@ import SwiftUI
 struct CharactersInfoView: View {
     
     @EnvironmentObject private var vm: ViewModel
+    @Environment(\.openURL) private var openUrl
     
     var body: some View {
         
@@ -52,7 +53,31 @@ struct CharactersInfoView: View {
                         .background {
                             Color.white
                         }
-                        .padding(.vertical)
+                        .padding(.bottom)
+                    
+                    VStack {
+                        Spacer()
+                        HStack(alignment: .top) {
+                            Button {
+                                openUrl(URL(string: vm.selectedCharModel!.wikiUrl!)!)
+                            } label: {
+                                NavigationButton(label: Constants.sfWiki)
+                            }
+                            .opacity(vm.isCharWikiUrlValid() ? 1 : 0)
+                            .disabled(!vm.isCharWikiUrlValid())
+                            
+                            Spacer()
+                            Button {
+                                //TODO: Make Favoties
+                            } label: {
+                                NavigationButton(label: Constants.sfHeartFill)
+                            }
+                        }
+                    }
+                    .font(.appTitle3)
+                    .foregroundColor(.white)
+                    .buttonStyle(.plain)
+                    .padding(.all)
                 }
                 
                 CharacterInfoList(character: vm.selectedCharModel!)
