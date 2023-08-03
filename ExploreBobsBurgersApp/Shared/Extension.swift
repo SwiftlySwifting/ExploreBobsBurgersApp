@@ -78,6 +78,25 @@ extension String {
         let noSpacer = joined.components(separatedBy: " ")
         return noSpacer.map({$0.lowercased()})
     }
+    
+    var removeCommas: String {
+        var newString = ""
+        for char in self {
+            if char != "," {
+                newString.append(char)
+            }
+        }
+        return newString
+    }
+    
+    var ageFormat: String {
+        let pattern = "\\(.*\\)"
+        let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        let range = NSRange(location: 0, length: self.count)
+        let modifiedString = regex.stringByReplacingMatches(in: self, options: .init(rawValue: 0), range: range, withTemplate: "")
+        return modifiedString.removeCommas
+    }
+
 }
 
 

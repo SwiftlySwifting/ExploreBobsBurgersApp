@@ -16,7 +16,7 @@ struct CharacterInfoList: View {
         VStack(spacing: 25) {
             if character.age != nil {
                 CharacterInfoListStyle(label: "Age",
-                                       info: character.age!)
+                                       info: character.age!.ageFormat)
             }
             if character.gender != nil {
                 CharacterInfoListStyle(label: "Gender",
