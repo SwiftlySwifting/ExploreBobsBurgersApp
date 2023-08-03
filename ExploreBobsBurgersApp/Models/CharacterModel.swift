@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterModel: Identifiable, Codable {
+struct CharacterModel: Identifiable, Codable, Equatable {
     var id: Int
     var name: String
     var age: String?
@@ -20,4 +20,9 @@ struct CharacterModel: Identifiable, Codable {
     var url: String?
     var wikiUrl: String?
     var relatives: [RelativeModel]
+    
+    //used to make struct Equatable so can run onChange to scroll to top when selecting relative character
+    static func ==(lhs: CharacterModel, rhs: CharacterModel) -> Bool {
+        return lhs.name == rhs.name && lhs.id == rhs.id
+    }
 }

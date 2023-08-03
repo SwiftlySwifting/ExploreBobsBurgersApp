@@ -42,51 +42,52 @@ struct CharactersInfoView: View {
                 Color.bBBlue.ignoresSafeArea()
             }
             
-            ScrollView {
-                ZStack(alignment: .top) {
-                    
-                    Color.bBBlue
-                    
-                    UrlImage(urlString: vm.selectedCharModel!.image)
-                        .scaledToFill()
-                        .frame(width: 200, alignment: .top)
-                        .background {
-                            Color.white
-                        }
-                        .padding(.vertical)
-                    
-                    VStack {
-                        Spacer()
-                        HStack(alignment: .top) {
-                            Button {
-                                openUrl(URL(string: vm.selectedCharModel!.wikiUrl!)!)
-                            } label: {
-                                NavigationButton(label: Constants.sfWiki)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    ZStack(alignment: .top) {
+                        Color.bBBlue
+                        UrlImage(urlString: vm.selectedCharModel!.image)
+                            .scaledToFill()
+                            .frame(width: 200, alignment: .top)
+                            .background {
+                                Color.white
                             }
-                            .opacity(vm.isCharWikiUrlValid() ? 1 : 0)
-                            .disabled(!vm.isCharWikiUrlValid())
-                            
+                            .padding(.vertical)
+                        VStack {
                             Spacer()
-                            Button {
-                                //TODO: Make Favoties
-                            } label: {
-                                NavigationButton(label: Constants.sfHeartFill)
+                            HStack(alignment: .top) {
+                                Button {
+                                    openUrl(URL(string: vm.selectedCharModel!.wikiUrl!)!)
+                                } label: {
+                                    NavigationButton(label: Constants.sfWiki)
+                                }
+                                .opacity(vm.isCharWikiUrlValid() ? 1 : 0)
+                                .disabled(!vm.isCharWikiUrlValid())
+                                
+                                Spacer()
+                                Button {
+                                    //TODO: Make Favoties
+                                } label: {
+                                    NavigationButton(label: Constants.sfHeartFill)
+                                }
                             }
                         }
+                        .font(.appTitle3)
+                        .foregroundColor(.white)
+                        .buttonStyle(.plain)
+                        .padding(.all)
                     }
-                    .font(.appTitle3)
-                    .foregroundColor(.white)
-                    .buttonStyle(.plain)
-                    .padding(.all)
+                    .id(0)
+                    
+                    CharacterInfoList(character: vm.selectedCharModel!)
                 }
-                
-                CharacterInfoList(character: vm.selectedCharModel!)
-                
+                .onChange(of: vm.selectedCharModel) { _ in
+                    proxy.scrollTo(0, anchor: .top)
+                }
             }
-            
             Spacer()
-            
         }
+        
     }
 }
 
