@@ -41,21 +41,25 @@ class ViewModel: ObservableObject {
         }
     }
     
-    func relativeUrlStrFromCharacter(relative: RelativeModel) -> String? {
+    func characterModelFromRelative(relative:RelativeModel) -> CharacterModel? {
+        if let chars = allCharacters.filter({ char in
+            relative.name == char.name &&
+            compareName(relModels: char.relatives, selectedName: selectedCharModel!.name)
+        }).first {
+            return chars
+        } else { return nil }
+    }
+    
+    func imageUrlStrFromRelative(relative: RelativeModel) -> String? {
         if let id = characterIdFromRelativeUrl(relative: relative) {
             let suffix = ".jpg"
             return Constants.IMAGE_URL + id + suffix
         } else {
-            let chars = allCharacters.filter { char in
-                relative.name == char.name &&
-                compareName(relModels: char.relatives, selectedName: selectedCharModel!.name)
-            }.first
-            
-            if chars != nil {
-                if chars!.image != nil {
-                    return chars!.image!
+            if let chars = characterModelFromRelative(relative: relative) {
+                if let image = chars.image {
+                    return image
                 } else { return nil }
-            } else {return nil }
+            } else { return nil }
         }
     }
     
@@ -77,21 +81,23 @@ class ViewModel: ObservableObject {
     }
     
     func characterIdFromRelativeUrl(relative: RelativeModel) -> String? {
-        guard let unwrappedUrlStr = relative.url else {
-            return nil
-        }
-        guard let url = URL(string: unwrappedUrlStr) else {
-            return nil
-        }
-        return url.lastPathComponent
+        if let unwrappedUrlStr = relative.url {
+            if let url = URL(string: unwrappedUrlStr) {
+                return url.lastPathComponent
+            } else { return nil }
+        } else { return nil }
     }
     
     func fetchCharacterFromRelative(relative: RelativeModel) {
-        guard let id = characterIdFromRelativeUrl(relative: relative) else { return }
-        guard let char = (allCharacters.first { char in
-            char.id == Int(id)
-         }) else { return }
-        selectedCharModel = char
+        if let id = characterIdFromRelativeUrl(relative: relative) {
+            guard let char = (allCharacters.first { char in
+                char.id == Int(id)
+            }) else { return }
+            selectedCharModel = char
+        } else {
+            guard let char = characterModelFromRelative(relative: relative) else { return }
+            selectedCharModel = char
+        }
     }
     
     func isCharWikiUrlValid() -> Bool {

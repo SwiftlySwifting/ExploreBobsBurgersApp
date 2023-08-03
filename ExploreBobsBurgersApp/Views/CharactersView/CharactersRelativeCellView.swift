@@ -22,7 +22,7 @@ struct CharactersRelativeCellView: View {
                 .shadow(color: .shadowColor, radius: 3, x: 1, y: 1)
             HStack(alignment: .top) {
                 
-                UrlImage(urlString: vm.relativeUrlStrFromCharacter(relative: relative))
+                UrlImage(urlString: vm.imageUrlStrFromRelative(relative: relative))
                     .scaledToFill()
                     .frame(width: 100, height: 100, alignment: .top)
                     .clipped()
