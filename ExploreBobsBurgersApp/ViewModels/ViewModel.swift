@@ -42,11 +42,38 @@ class ViewModel: ObservableObject {
     }
     
     func relativeUrlStrFromCharacter(relative: RelativeModel) -> String? {
-        guard let id = characterIdFromRelativeUrl(relative: relative) else {
-            return nil
+        if let id = characterIdFromRelativeUrl(relative: relative) {
+            let suffix = ".jpg"
+            return Constants.IMAGE_URL + id + suffix
+        } else {
+            let chars = allCharacters.filter { char in
+                relative.name == char.name &&
+                compareName(relModels: char.relatives, selectedName: selectedCharModel!.name)
+            }.first
+            
+            if chars != nil {
+                if chars!.image != nil {
+                    return chars!.image!
+                } else { return nil }
+            } else {return nil }
         }
-        let suffix = ".jpg"
-        return Constants.IMAGE_URL + id + suffix
+    }
+    
+    //For when RelativeModel does not have API url, but the Relative does have a ChracterModel
+    func compareName(relModels:[RelativeModel], selectedName: String) -> Bool {
+        var str = [String]()
+        let selNamePartsArray = selectedName.nameSplitLowerCase
+        for relModel in relModels {
+            let relNamePartsArray = relModel.name.nameSplitLowerCase
+            for relNamePart in relNamePartsArray {
+                if selNamePartsArray.contains(relNamePart) {
+                    str.append(relNamePart)
+                }
+            }
+        }
+        if str.isEmpty {
+            return false
+        } else { return true }
     }
     
     func characterIdFromRelativeUrl(relative: RelativeModel) -> String? {

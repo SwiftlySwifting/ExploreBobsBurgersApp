@@ -71,5 +71,14 @@ extension Font {
        }
 }
 
+extension String {
+    var nameSplitLowerCase: [String] {
+        let comps = self.components(separatedBy: NSCharacterSet.punctuationCharacters)
+        let joined = comps.joined(separator: "")
+        let noSpacer = joined.components(separatedBy: " ")
+        return noSpacer.map({$0.lowercased()})
+    }
+}
+
 
 
