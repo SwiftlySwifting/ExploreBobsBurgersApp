@@ -12,16 +12,16 @@ struct CharactersHomeView: View {
     @EnvironmentObject private var vm: ViewModel
     
     private var columns:[GridItem] {
-            let columns = [
-                GridItem(.flexible(), spacing: 5),
-                GridItem(.flexible(), spacing: 5)
-            ]
-            return columns
-        }
+        let columns = [
+            GridItem(.flexible(), spacing: 5),
+            GridItem(.flexible(), spacing: 5)
+        ]
+        return columns
+    }
     
     var body: some View {
         VStack {
-            //Title and button
+            ZStack {
                 HStack {
                     Button {
                         vm.currentViewState = .home
@@ -30,42 +30,41 @@ struct CharactersHomeView: View {
                     }
                     
                     Spacer()
-                    
-                    CharactersSubViewTitle(title:  CategoriesEnum.characters.label)
-                    
-                    Spacer()
-                    
-                    Button {
-                        Task {
-                            await vm.fetchAllCharacters()
-                        }
-                    } label: {
-                        Text("fetch")
-                    }
+                }
+                .padding(.leading)
                 
+                CharactersSubViewTitle(title:  CategoriesEnum.characters.label)
             }
-            .padding(.leading)
             .padding(.bottom, 30)
             .background {
                 Color.bBBlue.ignoresSafeArea()
             }
-        
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(vm.allCharacters) {char in
-                        Button {
-                            vm.selectedCharModel = char
-                            if vm.selectedCharModel != nil {
-                                vm.currentViewState = .characterInfo
+            
+            ScrollViewReader {proxy in
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(vm.allCharacters) {char in
+                            ZStack {
+                                Button {
+                                    vm.selectedCharModel = char
+                                    if vm.selectedCharModel != nil {
+                                        vm.currentViewState = .characterInfo
+                                    }
+                                    
+                                } label: {
+                                    CharactersHomeListCellView(character: char)
+                                }
                             }
-                            
-                        } label: {
-                            CharactersHomeListCellView(character: char)
+                            .id(char.id)
                         }
-                    
                     }
                 }
-           
+                .onAppear {
+                    if vm.selectedCharModel != nil {
+                        proxy.scrollTo(vm.selectedCharModel!.id,
+                                       anchor: .top)
+                    }
+                }
             }
             
             Spacer()
