@@ -20,7 +20,7 @@ struct CharactersHomeView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ZStack {
                 HStack {
                     Button {
@@ -43,8 +43,7 @@ struct CharactersHomeView: View {
             ScrollViewReader {proxy in
                 ScrollView {
                     CharactersSearchBarView()
-                        .padding(.horizontal)
-                        .padding(.bottom)
+                        .padding()
                         .id(0)
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(vm.searchedCharacters()) {char in
@@ -67,12 +66,13 @@ struct CharactersHomeView: View {
                 .onAppear {
                     if vm.selectedCharModel != nil {
                         proxy.scrollTo(vm.selectedCharModel!.id,
-                                       anchor: .top)
+                                       anchor: .center)
                     } else {
                         proxy.scrollTo(0, anchor: .top)
                     }
                 }
             }
+
 
             Spacer()
         }
