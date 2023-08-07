@@ -72,9 +72,6 @@ struct CharactersHomeView: View {
                     }
                 }
             }
-
-
-            Spacer()
         }
     }
 }

@@ -85,7 +85,6 @@ struct CharactersInfoView: View {
                     proxy.scrollTo(0, anchor: .top)
                 }
             }
-            Spacer()
         }
         
     }
