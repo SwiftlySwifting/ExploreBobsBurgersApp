@@ -13,8 +13,8 @@ struct CharactersHomeView: View {
     
     private var columns:[GridItem] {
         let columns = [
-            GridItem(.flexible(), spacing: 5),
-            GridItem(.flexible(), spacing: 5)
+            GridItem(.flexible(), spacing: 20),
+            GridItem(.flexible(), spacing: 20)
         ]
         return columns
     }
@@ -31,8 +31,8 @@ struct CharactersHomeView: View {
                     
                     Spacer()
                 }
-                .padding(.leading)
-                
+                .padding(.horizontal)
+
                 CharactersSubViewTitle(title:  CategoriesEnum.characters.label)
             }
             .padding(.bottom, 30)
@@ -42,7 +42,11 @@ struct CharactersHomeView: View {
             
             ScrollViewReader {proxy in
                 ScrollView {
-                    LazyVGrid(columns: columns) {
+                    CharactersSearchBarView()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                        .id(0)
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(vm.allCharacters) {char in
                             ZStack {
                                 Button {
@@ -58,15 +62,18 @@ struct CharactersHomeView: View {
                             .id(char.id)
                         }
                     }
+                    .padding(.horizontal)
                 }
                 .onAppear {
                     if vm.selectedCharModel != nil {
                         proxy.scrollTo(vm.selectedCharModel!.id,
                                        anchor: .top)
+                    } else {
+                        proxy.scrollTo(0, anchor: .top)
                     }
                 }
             }
-            
+
             Spacer()
         }
     }

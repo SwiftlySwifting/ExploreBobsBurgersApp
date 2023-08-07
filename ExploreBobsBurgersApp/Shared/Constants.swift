@@ -19,6 +19,8 @@ struct Constants {
     static let sfHeartFill = "heart.fill"
     static let sfHeart = "heart"
     static let sfWiki = "safari"
+    static let sfMagnifyingglass = "magnifyingglass"
+    static let sfClearSearch = "x.circle"
     
     static let BASE_URL = "https://bobsburgers-api.herokuapp.com/"
     static let CHAR_URL = BASE_URL + "characters"

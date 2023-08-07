@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     @Published var currentViewState: ViewStateEnum = .home
     @Published var allCharacters:[CharacterModel] = []
     @Published var selectedCharModel: CharacterModel?
+    @Published var characterSearch = ""
     
     init() {
         Task {

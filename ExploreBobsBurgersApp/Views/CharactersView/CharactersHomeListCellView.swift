@@ -40,7 +40,6 @@ struct CharactersHomeListCellView: View {
             }
             .padding(.all, 10)
         }
-        .padding(.all, 10)
     }
 }
 

@@ -19,7 +19,6 @@ struct PreviewData: ViewModifier {
         content
             .environmentObject({ () -> ViewModel in
                 let object = ViewModel()
-                
                 var models = [CharacterModel]()
                 for int in 1..<7 {
                     models.append(CharacterModel(id: int,
@@ -36,6 +35,7 @@ struct PreviewData: ViewModifier {
                 }
                 object.allCharacters = models
                 object.selectedCharModel = Constants.previewCharacterModel
+                object.characterSearch = "Search Text"
                 return object
                 
             }())
