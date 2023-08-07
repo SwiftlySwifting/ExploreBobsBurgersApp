@@ -34,8 +34,25 @@ struct CharacterInfoList: View {
             }
             
             if character.voicedBy != nil {
-                CharacterInfoListStyle(label: "Voiced by",
-                                       info: character.voicedBy!)
+                VStack {
+                    Text("Voiced By:")
+                        .font(.appBody)
+                    if character.voicedByArray != nil {
+                        VStack(spacing: 15) {
+                            ForEach(character.voicedByArray!) {act in
+                                VStack {
+                                    Text(act.name)
+                                        .font(.appTitle2)
+                                    if act.episode != nil {
+                                        Text(act.episode!)
+                                            .font(.appCallout)
+                                    }
+                                }
+                                .multilineTextAlignment(.center)
+                            }
+                        }
+                    }
+                }
             }
             
             if !character.relatives.isEmpty {

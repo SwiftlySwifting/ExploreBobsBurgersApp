@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B83ED2AC2A80454C0095BD83 /* VoicedByModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */; };
 		B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */; };
 		B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC32A73168300FDF93C /* CategoryView.swift */; };
 		B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedByModel.swift; sourceTree = "<group>"; };
 		B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLabel.swift; sourceTree = "<group>"; };
 		B85BDAC32A73168300FDF93C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		B86189952A72F5310043AAD3 /* ExploreBobsBurgersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreBobsBurgersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 			children = (
 				B8B394592A74437E004489F8 /* CharacterModel.swift */,
 				B8B3945B2A744398004489F8 /* RelativeModel.swift */,
+				B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				B8878C2B2A7414030019F9A0 /* NavigationButton.swift in Sources */,
 				B8E1493C2A786EDF00F079F5 /* CharacterInfoList.swift in Sources */,
 				B86CF1332A79921C0073840A /* CharactersRelativeCellView.swift in Sources */,
+				B83ED2AC2A80454C0095BD83 /* VoicedByModel.swift in Sources */,
 				B8E149372A786B9A00F079F5 /* CharactersSubViewTitle.swift in Sources */,
 				B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */,
 				B8B3945C2A744398004489F8 /* RelativeModel.swift in Sources */,

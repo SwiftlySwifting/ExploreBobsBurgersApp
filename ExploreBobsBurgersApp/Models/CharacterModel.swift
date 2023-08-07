@@ -25,4 +25,8 @@ struct CharacterModel: Identifiable, Codable, Equatable {
     static func ==(lhs: CharacterModel, rhs: CharacterModel) -> Bool {
         return lhs.name == rhs.name && lhs.id == rhs.id
     }
+    
+    var voicedByArray: [VoicedBy]? {
+        return voicedBy?.characterVoicedBy
+    }
 }

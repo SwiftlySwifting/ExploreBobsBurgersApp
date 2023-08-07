@@ -24,6 +24,11 @@ class ViewModel: ObservableObject {
         do {
             let allChars = try await Webservice().getAllCharacters()
             allCharacters = allChars
+//            for a in allChars {
+//                if let b = a.voicedBy {
+//                    print("\(a.name): \(b)")
+//                }
+//            }
         }
         catch {
             print(error)

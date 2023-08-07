@@ -89,12 +89,53 @@ extension String {
         return newString
     }
     
-    var ageFormat: String {
+    var removeCharsBetweenPars: String {
         let pattern = "\\(.*\\)"
         let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
         let range = NSRange(location: 0, length: self.count)
         let modifiedString = regex.stringByReplacingMatches(in: self, options: .init(rawValue: 0), range: range, withTemplate: "")
-        return modifiedString.removeCommas
+        return modifiedString
+    }
+    
+    var ageFormat: String {
+        return self.removeCharsBetweenPars.removeCommas
+    }
+    
+    var characterVoicedBy: [VoicedBy]? {
+        if self.contains("), ") {
+            var namesArray = [VoicedBy]()
+            if self.contains("\"") {
+                let names = self.components(separatedBy: "\"), ")
+                for name in names {
+                    let elements = name.components(separatedBy: "(\"")
+                    let episode = elements[1].filter { char in
+                        char != "(" && char != ")" && char != "\""
+                    }
+                    let newPer = VoicedBy(id: UUID(),
+                                          name: elements[0],
+                                          episode: "\"\(episode)\"")
+                    namesArray.append(newPer)
+                }
+                return namesArray
+                
+            } else if self.contains("(") {
+                let names = self.components(separatedBy: ", ")
+                for name in names {
+                    let newPer = VoicedBy(id: UUID(),
+                                          name: name)
+                    namesArray.append(newPer)
+                }
+                return namesArray
+                
+            } else {
+                return nil
+            }
+            
+        } else {
+            let name = VoicedBy(id: UUID(),
+                                name: self)
+            return [name]
+        }
     }
 
 }
