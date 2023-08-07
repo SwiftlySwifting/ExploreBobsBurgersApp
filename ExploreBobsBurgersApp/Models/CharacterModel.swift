@@ -29,4 +29,8 @@ struct CharacterModel: Identifiable, Codable, Equatable {
     var voicedByArray: [VoicedBy]? {
         return voicedBy?.characterVoicedBy
     }
+    
+    var unwrappedVoicedBy: String {
+        return voicedBy ?? ""
+    }
 }

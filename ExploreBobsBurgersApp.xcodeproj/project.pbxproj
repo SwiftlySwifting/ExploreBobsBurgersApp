@@ -181,12 +181,12 @@
 		B86189B42A72FB840043AAD3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B8B3945F2A74453C004489F8 /* ViewModifiers.swift */,
 				B8E1492D2A77ED6900F079F5 /* Services */,
 				B86189AB2A72F56B0043AAD3 /* CoreData */,
 				B86189B72A72FC890043AAD3 /* ShortStack-Regular.ttf */,
 				B86189B22A72F69A0043AAD3 /* Constants.swift */,
 				B86189B52A72FBA70043AAD3 /* Extension.swift */,
-				B8B3945F2A74453C004489F8 /* ViewModifiers.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

@@ -21,12 +21,15 @@ struct CharactersSearchBarView: View {
                 Image(systemName: Constants.sfMagnifyingglass)
                     .foregroundColor(.gray.opacity(0.6))
                     .padding(.trailing, 5)
-                Text(vm.characterSearch)
-                    .font(.appBody)
+                TextField("CharacterSearch",
+                          text: $vm.characterSearch,
+                          prompt: Text("Character or Voiced By"))
+                .font(.appBody)
+                
                 Spacer()
                 
                 Button {
-                    
+                    vm.clearCharacterSearch()
                 } label: {
                     Image(systemName: Constants.sfClearSearch)
                         .foregroundColor(.gray.opacity(0.6))

@@ -47,7 +47,7 @@ struct CharactersHomeView: View {
                         .padding(.bottom)
                         .id(0)
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(vm.allCharacters) {char in
+                        ForEach(vm.searchedCharacters()) {char in
                             ZStack {
                                 Button {
                                     vm.selectedCharModel = char

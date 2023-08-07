@@ -21,6 +21,24 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func clearCharacterSearch() {
+        characterSearch = ""
+    }
+    
+    func searchedCharacters() -> [CharacterModel] {
+        if characterSearch == "" {
+            return allCharacters
+        } else {
+
+            let filtered = allCharacters.filter { char in
+                char.name.lowercased().contains(characterSearch.lowercased()) ||
+                char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
+            }
+            return filtered
+        }
+    }
+        
+    
     func fetchAllCharacters() async {
         do {
             let allChars = try await Webservice().getAllCharacters()
@@ -35,6 +53,7 @@ class ViewModel: ObservableObject {
             print(error)
         }
     }
+    
     
     func changeViews(category: CategoriesEnum) {
         switch category {
