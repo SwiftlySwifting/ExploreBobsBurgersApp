@@ -17,4 +17,9 @@ struct EpisodeModel: Identifiable, Codable {
     var totalViewers: String
     var url: String
     var wikiUrl: String
+    
+    var wikiUrlObj: URL {
+        let unwrapped = URL(string: wikiUrl)!
+        return unwrapped
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct EpisodesHomeView: View {
     
     @EnvironmentObject private var vm: ViewModel
+    @Environment(\.openURL) private var openUrl
     
     var body: some View {
         VStack(spacing: 0) {
@@ -30,6 +31,7 @@ struct EpisodesHomeView: View {
             .padding(.bottom, 30)
             .background {
                 Color.bBBlue.ignoresSafeArea()
+                    .padding(.bottom)
             }
             
             ScrollView {
@@ -40,8 +42,13 @@ struct EpisodesHomeView: View {
                         Section {
                             VStack(alignment: .leading, spacing: 10) {
                                 ForEach(s.orderFilterEpis) { e in
-                                    EpisodeCell(episode: e)
-                                        .padding(.horizontal)
+                                    Button {
+                                        openUrl(e.wikiUrlObj)
+                                    } label: {
+                                        EpisodeCell(episode: e)
+                                            .padding(.horizontal)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         } header: {
