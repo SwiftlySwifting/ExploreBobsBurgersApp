@@ -33,10 +33,12 @@ struct EpisodesHomeView: View {
             }
             
             ScrollView {
-                VStack {
+                LazyVStack(alignment: .center,
+                           spacing: 10,
+                           pinnedViews: .sectionHeaders) {
                     ForEach(vm.allSeasons) { s in
                         Section {
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 10) {
                                 ForEach(s.orderFilterEpis) { e in
                                     EpisodeCell(episode: e)
                                         .padding(.horizontal)
@@ -51,10 +53,11 @@ struct EpisodesHomeView: View {
                                     .font(.appTitle2)
                                     .foregroundColor(.white)
                             }
-                            .padding(.top)
                         }
                     }
+
                 }
+                
             }
         }
     }
