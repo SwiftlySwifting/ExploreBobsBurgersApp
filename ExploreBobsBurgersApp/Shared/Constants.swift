@@ -25,6 +25,7 @@ struct Constants {
     static let BASE_URL = "https://bobsburgers-api.herokuapp.com/"
     static let CHAR_URL = BASE_URL + "characters"
     static let IMAGE_URL = BASE_URL + "images/characters/"
+    static let EPI_URL = BASE_URL + "episodes"
     
     static let previewCharacterModel = CharacterModel(id: 1,
                                                       name: "Andy and Olli Popopolovitch",

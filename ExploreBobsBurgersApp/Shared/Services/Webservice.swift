@@ -14,6 +14,12 @@ class Webservice {
         let (data, _) = try await URLSession.shared.data(from: url)
         return try JSONDecoder().decode([CharacterModel].self, from: data)
     }
+    
+    func getAllEpisodes() async throws -> [EpisodeModel] {
+        guard let url = URL(string: Constants.EPI_URL) else { return [] }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try JSONDecoder().decode([EpisodeModel].self, from: data)
+    }
 }
 
 extension URL {

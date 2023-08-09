@@ -10,6 +10,9 @@
 		B83ED2AC2A80454C0095BD83 /* VoicedByModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */; };
 		B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */; };
 		B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC32A73168300FDF93C /* CategoryView.swift */; };
+		B85CBE222A84096C004CE274 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE212A84096C004CE274 /* EpisodeModel.swift */; };
+		B85CBE242A840B50004CE274 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE232A840B50004CE274 /* SeasonModel.swift */; };
+		B85CBE272A8413C1004CE274 /* EpisodesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */; };
 		B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */; };
 		B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861899A2A72F5310043AAD3 /* ContentView.swift */; };
 		B861899D2A72F5310043AAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B861899C2A72F5310043AAD3 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedByModel.swift; sourceTree = "<group>"; };
 		B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLabel.swift; sourceTree = "<group>"; };
 		B85BDAC32A73168300FDF93C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		B85CBE212A84096C004CE274 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		B85CBE232A840B50004CE274 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
+		B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesHomeView.swift; sourceTree = "<group>"; };
 		B86189952A72F5310043AAD3 /* ExploreBobsBurgersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreBobsBurgersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBobsBurgers.swift; sourceTree = "<group>"; };
 		B861899A2A72F5310043AAD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,14 @@
 				B85BDAC32A73168300FDF93C /* CategoryView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		B85CBE252A841391004CE274 /* EpisodesView */ = {
+			isa = PBXGroup;
+			children = (
+				B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */,
+			);
+			path = EpisodesView;
 			sourceTree = "<group>";
 		};
 		B861898C2A72F5300043AAD3 = {
@@ -155,6 +169,7 @@
 			children = (
 				B85BDAC22A7310D600FDF93C /* HomeView */,
 				B8878C202A73FC0C0019F9A0 /* CharactersView */,
+				B85CBE252A841391004CE274 /* EpisodesView */,
 				B8878C292A7413C60019F9A0 /* SharedViews */,
 			);
 			path = Views;
@@ -174,6 +189,8 @@
 				B8B394592A74437E004489F8 /* CharacterModel.swift */,
 				B8B3945B2A744398004489F8 /* RelativeModel.swift */,
 				B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */,
+				B85CBE212A84096C004CE274 /* EpisodeModel.swift */,
+				B85CBE232A840B50004CE274 /* SeasonModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,7 +322,9 @@
 				B8B394602A74453C004489F8 /* ViewModifiers.swift in Sources */,
 				B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */,
 				B8878C222A7401590019F9A0 /* CharactersHomeView.swift in Sources */,
+				B85CBE242A840B50004CE274 /* SeasonModel.swift in Sources */,
 				B86189B62A72FBA70043AAD3 /* Extension.swift in Sources */,
+				B85CBE272A8413C1004CE274 /* EpisodesHomeView.swift in Sources */,
 				B8E149312A77EED300F079F5 /* UrlImage.swift in Sources */,
 				B86CF1352A7A97ED0073840A /* CharacterPlaceholderView.swift in Sources */,
 				B8B3945A2A74437E004489F8 /* CharacterModel.swift in Sources */,
@@ -319,6 +338,7 @@
 				B86CF1332A79921C0073840A /* CharactersRelativeCellView.swift in Sources */,
 				B83ED2AC2A80454C0095BD83 /* VoicedByModel.swift in Sources */,
 				B8E149372A786B9A00F079F5 /* CharactersSubViewTitle.swift in Sources */,
+				B85CBE222A84096C004CE274 /* EpisodeModel.swift in Sources */,
 				B86189AE2A72F6110043AAD3 /* HomeView.swift in Sources */,
 				B8B3945C2A744398004489F8 /* RelativeModel.swift in Sources */,
 				B87F43992A81356B0071DB49 /* CharactersSearchBarView.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WebKit
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -15,29 +16,14 @@ class ViewModel: ObservableObject {
     @Published var selectedCharModel: CharacterModel?
     @Published var characterSearch = ""
     
+    @Published var allSeasons: [SeasonModel] = []
+    
     init() {
         Task {
-            await fetchAllCharacters()
+//            await fetchAllCharacters()
+            await fetchAllEpisodes()
         }
     }
-    
-    func clearCharacterSearch() {
-        characterSearch = ""
-    }
-    
-    func searchedCharacters() -> [CharacterModel] {
-        if characterSearch == "" {
-            return allCharacters
-        } else {
-
-            let filtered = allCharacters.filter { char in
-                char.name.lowercased().contains(characterSearch.lowercased()) ||
-                char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
-            }
-            return filtered
-        }
-    }
-        
     
     func fetchAllCharacters() async {
         do {
@@ -54,7 +40,43 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func fetchAllEpisodes() async {
+        do {
+            var seasons = [SeasonModel]()
+            let allEpis = try await Webservice().getAllEpisodes()
+            guard let lastEipSeasonNum = allEpis.last?.season else { return }
+            for s in 1..<(lastEipSeasonNum + 1) {
+                let seasonEpis = allEpis.filter { epi in
+                    epi.season == s
+                }
+                seasons.append(SeasonModel(id: UUID(),
+                                           number: s,
+                                           episodes: seasonEpis))
+            }
+            allSeasons = seasons
+        }
+        catch {
+            print(error)
+        }
+    }
+        
+    func clearCharacterSearch() {
+        characterSearch = ""
+    }
     
+    func searchedCharacters() -> [CharacterModel] {
+        if characterSearch == "" {
+            return allCharacters
+        } else {
+
+            let filtered = allCharacters.filter { char in
+                char.name.lowercased().contains(characterSearch.lowercased()) ||
+                char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
+            }
+            return filtered
+        }
+    }
+
     func changeViews(category: CategoriesEnum) {
         switch category {
         case .characters:
