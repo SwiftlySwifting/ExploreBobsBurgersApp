@@ -14,6 +14,7 @@
 		B85CBE242A840B50004CE274 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE232A840B50004CE274 /* SeasonModel.swift */; };
 		B85CBE272A8413C1004CE274 /* EpisodesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */; };
 		B85CBE292A841BCD004CE274 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE282A841BCD004CE274 /* EpisodeCell.swift */; };
+		B85CBE2B2A842B33004CE274 /* EpisodeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85CBE2A2A842B33004CE274 /* EpisodeHeader.swift */; };
 		B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */; };
 		B861899B2A72F5310043AAD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B861899A2A72F5310043AAD3 /* ContentView.swift */; };
 		B861899D2A72F5310043AAD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B861899C2A72F5310043AAD3 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		B85CBE232A840B50004CE274 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
 		B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesHomeView.swift; sourceTree = "<group>"; };
 		B85CBE282A841BCD004CE274 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		B85CBE2A2A842B33004CE274 /* EpisodeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeHeader.swift; sourceTree = "<group>"; };
 		B86189952A72F5310043AAD3 /* ExploreBobsBurgersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploreBobsBurgersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86189982A72F5310043AAD3 /* ExploreBobsBurgers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBobsBurgers.swift; sourceTree = "<group>"; };
 		B861899A2A72F5310043AAD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */,
 				B85CBE282A841BCD004CE274 /* EpisodeCell.swift */,
+				B85CBE2A2A842B33004CE274 /* EpisodeHeader.swift */,
 			);
 			path = EpisodesView;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				B86CF1392A7AB00D0073840A /* ImageCashe.swift in Sources */,
 				B86189992A72F5310043AAD3 /* ExploreBobsBurgers.swift in Sources */,
 				B86189B32A72F69A0043AAD3 /* Constants.swift in Sources */,
+				B85CBE2B2A842B33004CE274 /* EpisodeHeader.swift in Sources */,
 				B8878C262A74024F0019F9A0 /* ViewModel.swift in Sources */,
 				B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */,
 				B8B3945E2A7443FF004489F8 /* Webservice.swift in Sources */,

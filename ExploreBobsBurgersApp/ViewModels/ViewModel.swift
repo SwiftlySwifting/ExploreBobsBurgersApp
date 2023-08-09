@@ -51,7 +51,8 @@ class ViewModel: ObservableObject {
                 }
                 seasons.append(SeasonModel(id: UUID(),
                                            number: s,
-                                           episodes: seasonEpis))
+                                           episodes: seasonEpis,
+                                           expandEpis: false))
             }
             allSeasons = seasons
         }

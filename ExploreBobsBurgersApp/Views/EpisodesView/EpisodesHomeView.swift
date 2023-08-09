@@ -38,28 +38,25 @@ struct EpisodesHomeView: View {
                 LazyVStack(alignment: .center,
                            spacing: 10,
                            pinnedViews: .sectionHeaders) {
-                    ForEach(vm.allSeasons) { s in
+                    ForEach(0..<vm.allSeasons.count, id: \.self) { index in
                         Section {
-                            VStack(alignment: .leading, spacing: 10) {
-                                ForEach(s.orderFilterEpis) { e in
-                                    Button {
-                                        openUrl(e.wikiUrlObj)
-                                    } label: {
-                                        EpisodeCell(episode: e)
-                                            .padding(.horizontal)
+                            if vm.allSeasons[index].expandEpis {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    ForEach(vm.allSeasons[index].orderFilterEpis) { e in
+                                        Button {
+                                            openUrl(e.wikiUrlObj)
+                                        } label: {
+                                            EpisodeCell(episode: e)
+                                                .padding(.horizontal)
+                                        }
+                                        .buttonStyle(.plain)
                                     }
-                                    .buttonStyle(.plain)
                                 }
                             }
                         } header: {
-                            ZStack {
-                                Rectangle()
-                                    .frame(height: 30)
-                                    .foregroundColor(.bBRed)
-                                Text("Season \(s.number)")
-                                    .font(.appTitle2)
-                                    .foregroundColor(.white)
-                            }
+                            EpisodeHeader(season: vm.allSeasons[index],
+                                          showEpisodes: $vm.allSeasons[index].expandEpis)
+                      
                         }
                     }
 
