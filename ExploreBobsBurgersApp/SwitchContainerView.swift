@@ -20,7 +20,7 @@ struct SwitchContainerView: View {
         case .characterInfo:
             CharactersInfoView()
         case .episodes:
-            EmptyView()
+            EpisodesHomeView()
         case .favorites:
             EmptyView()
         }

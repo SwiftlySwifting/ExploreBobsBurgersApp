@@ -14,7 +14,7 @@ struct CharactersSubViewTitle: View {
     var body: some View {
         
         Text(title)
-            .font(.appBody)
+            .font(.appTitle2)
             .foregroundColor(.white)
             .multilineTextAlignment(.center)
             .padding(.horizontal)

@@ -11,4 +11,10 @@ struct SeasonModel: Identifiable, Codable {
     var id: UUID
     var number: Int
     var episodes: [EpisodeModel]
+    
+    var orderFilterEpis: [EpisodeModel] {
+        return episodes.sorted { a, b in
+            a.episode < b.episode
+        }
+    }
 }
