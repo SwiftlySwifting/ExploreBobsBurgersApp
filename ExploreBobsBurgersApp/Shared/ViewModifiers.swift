@@ -36,6 +36,7 @@ struct PreviewData: ViewModifier {
                 object.allCharacters = models
                 object.selectedCharModel = Constants.previewCharacterModel
                 object.characterSearch = ""
+                object.showFavoriteCharacters = true
                 return object
                 
             }())

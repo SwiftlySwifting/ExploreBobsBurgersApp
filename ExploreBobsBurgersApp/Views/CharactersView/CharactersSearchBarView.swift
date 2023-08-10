@@ -13,29 +13,54 @@ struct CharactersSearchBarView: View {
     
     var body: some View {
         
-        ZStack {
-            Rectangle()
-                .frame(height: 40)
-                .foregroundColor(.gray.opacity(0.2))
-            HStack {
-                Image(systemName: Constants.sfMagnifyingglass)
-                    .foregroundColor(.gray.opacity(0.6))
-                    .padding(.trailing, 5)
-                TextField("CharacterSearch",
-                          text: $vm.characterSearch,
-                          prompt: Text("Character or Voiced By"))
-                .font(.appBody)
-                
-                Spacer()
-                
-                Button {
-                    vm.clearCharacterSearch()
-                } label: {
-                    Image(systemName: Constants.sfClearSearch)
+        HStack {
+            ZStack {
+                Rectangle()
+                    .frame(height: 40)
+                    .foregroundColor(.gray.opacity(0.2))
+                HStack {
+                    Image(systemName: Constants.sfMagnifyingglass)
                         .foregroundColor(.gray.opacity(0.6))
+                        .padding(.trailing, 5)
+                    TextField("CharacterSearch",
+                              text: $vm.characterSearch,
+                              prompt: Text("Search"))
+                    .font(.appBody)
+                    
+                    Spacer()
+                    
+                    Button {
+                        vm.clearCharacterSearch()
+                    } label: {
+                        Image(systemName: Constants.sfClearSearch)
+                            .foregroundColor(.gray.opacity(0.6))
+                    }
+                }
+                .padding(.horizontal)
+            }
+            
+            ZStack {
+                if vm.showFavoriteCharacters {
+                    Button {
+                        vm.showFavoriteCharacters.toggle()
+                    } label: {
+                        Image(systemName: Constants.sfHeartFill)
+                            .foregroundColor(.bBRed)
+                            .font(.appTitle)
+                    }
+                } else {
+                    Button {
+                        vm.showFavoriteCharacters.toggle()
+                    } label: {
+                        Image(systemName: Constants.sfHeart)
+                            .foregroundColor(.bBRed)
+                            .font(.appTitle)
+
+                    }
                 }
             }
-            .padding(.horizontal)
+            .padding(.leading)
+            .buttonStyle(.plain)
         }
     }
 }

@@ -76,6 +76,35 @@ class CoreDataViewModel: ObservableObject {
             return false
         }
     }
+    
+    func fetchAllCharacters(context: NSManagedObjectContext) -> [FavCharacterEnt] {
+        let request = NSFetchRequest<FavCharacterEnt>(entityName: Constants.cdCharFavEntStr)
+        do {
+            let favChar = try context.fetch(request)
+            return favChar
+        }
+        catch {
+            print("Error fetching for fav character: \(error)")
+            return []
+        }
+        
+    }
+    
+//    func fetchAllCharacters2(context: NSManagedObjectContext, characters: [CharacterModel]) -> [CharacterModel] {
+//        let request = NSFetchRequest<FavCharacterEnt>(entityName: Constants.cdCharFavEntStr)
+//        do {
+//            let favChar = try context.fetch(request)
+//            let filtered = favChar.filter { ent in
+//                ent.id == 2
+//            }
+//            return favChar
+//        }
+//        catch {
+//            print("Error fetching for fav character: \(error)")
+//            return []
+//        }
+//        
+//    }
 
 }
     

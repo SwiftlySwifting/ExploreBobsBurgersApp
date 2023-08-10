@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import WebKit
+import CoreData
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -15,6 +15,7 @@ class ViewModel: ObservableObject {
     @Published var allCharacters:[CharacterModel] = []
     @Published var selectedCharModel: CharacterModel?
     @Published var characterSearch = ""
+    @Published var showFavoriteCharacters = false
     
     @Published var allSeasons: [SeasonModel] = []
     
@@ -65,16 +66,39 @@ class ViewModel: ObservableObject {
         characterSearch = ""
     }
     
-    func searchedCharacters() -> [CharacterModel] {
-        if characterSearch == "" {
-            return allCharacters
-        } else {
-
-            let filtered = allCharacters.filter { char in
-                char.name.lowercased().contains(characterSearch.lowercased()) ||
-                char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
+    func searchedCharacters(fetchedCharsEnts: [FavCharacterEnt]) -> [CharacterModel] {
+        
+        let filtered = allCharacters.filter { char in
+            char.name.lowercased().contains(characterSearch.lowercased()) ||
+            char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
+        }
+        
+        var favCharacters = [CharacterModel]()
+        for model in allCharacters {
+            for ent in fetchedCharsEnts {
+                if model.id == ent.id {
+                    favCharacters.append(model)
+                }
             }
-            return filtered
+        }
+        
+        if showFavoriteCharacters {
+            
+            if characterSearch == "" {
+                return favCharacters
+            } else {
+                return favCharacters.filter { char in
+                    char.name.lowercased().contains(characterSearch.lowercased()) ||
+                    char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
+                }
+            }
+            
+        } else {
+            if characterSearch == "" {
+                return allCharacters
+            } else {
+                return filtered
+            }
         }
     }
 
