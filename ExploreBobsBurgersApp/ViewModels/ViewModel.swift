@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
     
     init() {
         Task {
-//            await fetchAllCharacters()
+            await fetchAllCharacters()
             await fetchAllEpisodes()
         }
     }
