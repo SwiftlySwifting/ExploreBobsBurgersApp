@@ -10,8 +10,11 @@ import SwiftUI
 struct CharactersInfoView: View {
     
     @EnvironmentObject private var vm: ViewModel
+    @EnvironmentObject private var cdVM: CoreDataViewModel
     @Environment(\.openURL) private var openUrl
-    
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: []) private var fetchFavEntity: FetchedResults<FavCharacterEnt>
+
     var body: some View {
         
         VStack(spacing: 0) {
@@ -19,6 +22,7 @@ struct CharactersInfoView: View {
             HStack(alignment: .top) {
                 Button {
                     vm.currentViewState = .characters
+                    cdVM.clearCharacter()
                 } label: {
                     NavigationButton(label: Constants.sfBack)
                 }
@@ -31,6 +35,7 @@ struct CharactersInfoView: View {
                 Button {
                     Task {
                         vm.currentViewState = .home
+                        cdVM.clearCharacter()
                     }
                 } label: {
                     NavigationButton(label: Constants.sfHome)
@@ -65,10 +70,23 @@ struct CharactersInfoView: View {
                                 .disabled(!vm.isCharWikiUrlValid())
                                 
                                 Spacer()
-                                Button {
-                                    //TODO: Make Favoties
-                                } label: {
-                                    NavigationButton(label: Constants.sfHeartFill)
+                                
+                                ZStack {
+                                    if cdVM.isCharacterFavorite(context: context) {
+                                        Button {
+                                            cdVM.loadCharacter(character: vm.selectedCharModel!)
+                                            cdVM.deleteFavCharacter(context: context)
+                                        } label: {
+                                            NavigationButton(label: Constants.sfHeartFill)
+                                        }
+                                    } else {
+                                        Button {
+                                            cdVM.loadCharacter(character: vm.selectedCharModel!)
+                                            cdVM.createNewFavCharacter(context: context)
+                                        } label: {
+                                            NavigationButton(label: Constants.sfHeart)
+                                        }
+                                    }
                                 }
                             }
                         }

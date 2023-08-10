@@ -10,6 +10,9 @@ import SwiftUI
 struct CharactersHomeView: View {
     
     @EnvironmentObject private var vm: ViewModel
+    @EnvironmentObject private var cdVM: CoreDataViewModel
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(sortDescriptors: []) private var fetchFavEntity: FetchedResults<FavCharacterEnt>
     
     private var columns:[GridItem] {
         let columns = [
@@ -51,6 +54,7 @@ struct CharactersHomeView: View {
                                 Button {
                                     vm.selectedCharModel = char
                                     if vm.selectedCharModel != nil {
+                                        cdVM.loadCharacter(character: char)
                                         vm.currentViewState = .characterInfo
                                     }
                                     
