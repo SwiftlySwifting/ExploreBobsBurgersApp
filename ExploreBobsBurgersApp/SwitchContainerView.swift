@@ -21,8 +21,6 @@ struct SwitchContainerView: View {
             CharactersInfoView()
         case .episodes:
             EpisodesHomeView()
-        case .favorites:
-            EmptyView()
         }
     }
 }

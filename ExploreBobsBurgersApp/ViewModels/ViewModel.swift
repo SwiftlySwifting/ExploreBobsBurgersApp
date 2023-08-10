@@ -84,8 +84,8 @@ class ViewModel: ObservableObject {
             currentViewState = .characters
         case .episodes:
             currentViewState = .episodes
-        case .favorites:
-            currentViewState = .favorites
+//        case .favorites:
+//            currentViewState = .favorites
         }
     }
     
