@@ -11,8 +11,7 @@ struct CharactersHomeView: View {
     
     @EnvironmentObject private var vm: ViewModel
     @EnvironmentObject private var cdVM: CoreDataViewModel
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(sortDescriptors: []) private var fetchFavEntity: FetchedResults<FavCharacterEnt>
+    @Environment(\.managedObjectContext) private var context
     
     private var columns:[GridItem] {
         let columns = [
@@ -29,7 +28,7 @@ struct CharactersHomeView: View {
                     Button {
                         vm.currentViewState = .home
                     } label: {
-                        NavigationButton(label: Constants.sfBack)
+                        NavigationButton(label: Constants.sfBack, color: .white)
                     }
                     
                     Spacer()
@@ -59,7 +58,9 @@ struct CharactersHomeView: View {
                                     }
                                     
                                 } label: {
-                                    CharactersHomeListCellView(character: char)
+                                    CharactersHomeListCellView(character: char,
+                                                               isFav: cdVM.isCharacterFavorite(context: context,
+                                                                                               character: char))
                                 }
                             }
                             .id(char.id)

@@ -12,8 +12,7 @@ struct CharactersInfoView: View {
     @EnvironmentObject private var vm: ViewModel
     @EnvironmentObject private var cdVM: CoreDataViewModel
     @Environment(\.openURL) private var openUrl
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(sortDescriptors: []) private var fetchFavEntity: FetchedResults<FavCharacterEnt>
+    @Environment(\.managedObjectContext) private var context
 
     var body: some View {
         
@@ -22,9 +21,9 @@ struct CharactersInfoView: View {
             HStack(alignment: .top) {
                 Button {
                     vm.currentViewState = .characters
-                    cdVM.clearCharacter()
+//                    cdVM.clearCharacter()
                 } label: {
-                    NavigationButton(label: Constants.sfBack)
+                    NavigationButton(label: Constants.sfBack, color: .white)
                 }
                 Spacer()
                 
@@ -35,10 +34,10 @@ struct CharactersInfoView: View {
                 Button {
                     Task {
                         vm.currentViewState = .home
-                        cdVM.clearCharacter()
+//                        cdVM.clearCharacter()
                     }
                 } label: {
-                    NavigationButton(label: Constants.sfHome)
+                    NavigationButton(label: Constants.sfHome, color: .white)
                 }
             }
             .padding(.horizontal)
@@ -64,7 +63,7 @@ struct CharactersInfoView: View {
                                 Button {
                                     openUrl(URL(string: vm.selectedCharModel!.wikiUrl!)!)
                                 } label: {
-                                    NavigationButton(label: Constants.sfWiki)
+                                    NavigationButton(label: Constants.sfWiki, color: .white)
                                 }
                                 .opacity(vm.isCharWikiUrlValid() ? 1 : 0)
                                 .disabled(!vm.isCharWikiUrlValid())
@@ -72,19 +71,20 @@ struct CharactersInfoView: View {
                                 Spacer()
                                 
                                 ZStack {
-                                    if cdVM.isCharacterFavorite(context: context) {
+                                    if cdVM.isCharacterFavorite(context: context,
+                                                                character: cdVM.selectedCharModel!) {
                                         Button {
                                             cdVM.loadCharacter(character: vm.selectedCharModel!)
                                             cdVM.deleteFavCharacter(context: context)
                                         } label: {
-                                            NavigationButton(label: Constants.sfHeartFill)
+                                            NavigationButton(label: Constants.sfHeartFill, color: .bBRed)
                                         }
                                     } else {
                                         Button {
                                             cdVM.loadCharacter(character: vm.selectedCharModel!)
                                             cdVM.createNewFavCharacter(context: context)
                                         } label: {
-                                            NavigationButton(label: Constants.sfHeart)
+                                            NavigationButton(label: Constants.sfHeart, color: .white)
                                         }
                                     }
                                 }

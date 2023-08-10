@@ -19,7 +19,7 @@ struct EpisodesHomeView: View {
                     Button {
                         vm.currentViewState = .home
                     } label: {
-                        NavigationButton(label: Constants.sfBack)
+                        NavigationButton(label: Constants.sfBack, color: .white)
                     }
                     
                     Spacer()

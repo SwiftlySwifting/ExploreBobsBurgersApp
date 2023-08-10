@@ -60,11 +60,10 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-    func isCharacterFavorite(context: NSManagedObjectContext) -> Bool {
+    func isCharacterFavorite(context: NSManagedObjectContext, character: CharacterModel) -> Bool {
         
-        guard let selectedChar = selectedCharModel else { return false }
         let request = NSFetchRequest<FavCharacterEnt>(entityName: Constants.cdCharFavEntStr)
-        request.predicate = NSPredicate(format: "id == %i", Int32(selectedChar.id))
+        request.predicate = NSPredicate(format: "id == %i", Int32(character.id))
         
         do {
             let favChar = try context.fetch(request)
