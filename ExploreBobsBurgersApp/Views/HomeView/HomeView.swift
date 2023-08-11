@@ -16,7 +16,8 @@ struct HomeView: View {
             Image(Constants.imageBbBgBlueStr)
                 .resizable()
                 .ignoresSafeArea()
-            
+            ScrollView {
+
             VStack {
                 ZStack(alignment: .top) {
                     Image(Constants.imageBbLogoStr)
@@ -29,7 +30,6 @@ struct HomeView: View {
                 .padding(.top, 30)
                 .padding()
 
-                ScrollView {
                     ForEach(CategoriesEnum.allCases, id: \.self) {cat in
                         Button {
                             withAnimation {
