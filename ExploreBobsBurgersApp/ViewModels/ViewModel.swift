@@ -67,38 +67,39 @@ class ViewModel: ObservableObject {
     }
     
     func searchedCharacters(fetchedCharsEnts: [FavCharacterEnt]) -> [CharacterModel] {
-        
-        let filtered = allCharacters.filter { char in
-            char.name.lowercased().contains(characterSearch.lowercased()) ||
-            char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
-        }
-        
-        var favCharacters = [CharacterModel]()
-        for model in allCharacters {
-            for ent in fetchedCharsEnts {
-                if model.id == ent.id {
-                    favCharacters.append(model)
+                
+        if showFavoriteCharacters {
+            
+            var favCharacters = [CharacterModel]()
+            for model in allCharacters {
+                for ent in fetchedCharsEnts {
+                    if model.id == ent.id {
+                        favCharacters.append(model)
+                    }
                 }
             }
-        }
-        
-        if showFavoriteCharacters {
             
             if characterSearch == "" {
                 return favCharacters
             } else {
-                return favCharacters.filter { char in
-                    char.name.lowercased().contains(characterSearch.lowercased()) ||
-                    char.unwrappedVoicedBy.lowercased().contains(characterSearch.lowercased())
-                }
+                return characterSearchFilter(sourceCharModels: favCharacters,
+                                             searchText: characterSearch)
             }
             
         } else {
             if characterSearch == "" {
                 return allCharacters
             } else {
-                return filtered
+                return characterSearchFilter(sourceCharModels: allCharacters,
+                                             searchText: characterSearch)
             }
+        }
+    }
+    
+    func characterSearchFilter(sourceCharModels: [CharacterModel], searchText: String) -> [CharacterModel] {
+        return sourceCharModels.filter { char in
+            char.name.lowercased().contains(searchText.lowercased()) ||
+            char.unwrappedVoicedBy.lowercased().contains(searchText.lowercased())
         }
     }
 

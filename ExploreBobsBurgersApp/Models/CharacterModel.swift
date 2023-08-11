@@ -33,11 +33,4 @@ struct CharacterModel: Identifiable, Codable, Equatable {
     var unwrappedVoicedBy: String {
         return voicedBy ?? ""
     }
-    
-    func isFav(charEnt: FavCharacterEnt) -> Bool {
-        if charEnt.id == Int32(id) {
-            return true
-        } else { return false }
-    }
-
 }
