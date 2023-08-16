@@ -21,7 +21,7 @@ struct CharactersHomeListCellView: View {
             
             VStack {
                 ZStack {
-                    UrlImage(urlString: character.image)
+                    UrlImageCharacter(urlString: character.image)
                         .scaledToFill()
                         .frame(width: 150,
                                height: 150,

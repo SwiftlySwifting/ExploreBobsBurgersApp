@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UrlImage: View {
+struct UrlImageCharacter: View {
     
     @ObservedObject var imageLoader = ImageLoader()
     let urlString: String?
