@@ -52,18 +52,54 @@ struct Constants {
                                                       wikiUrl: "https://bobs-burgers.fandom.com/wiki/Linda_Belcher",
                                                       relationship: "older daughter",
                                                       url: "https://bobsburgers-api.herokuapp.com/characters/275")
+    
+    static let epiModels8e6 = EpisodeModel(id: UUID().hashValue,
+                                           name: "\"The Bleakening Part 1\"",
+                                           productionCode: "7ASA16",
+                                           airDate: "December 10, 2017",
+                                           season: 8,
+                                           episode: 6,
+                                           totalViewers: "3.173 Million",
+                                           url: "",
+                                           wikiUrl: "https://bobs-burgers.fandom.com/wiki/The_Bleakening")
+    
+    static let epiModels8e7 = EpisodeModel(id: UUID().hashValue,
+                                           name: "\"The Bleakening Part 2\"",
+                                           productionCode: "7ASA17",
+                                           airDate: "December 10, 2017",
+                                           season: 8,
+                                           episode: 7,
+                                           totalViewers: "3.173 Million",
+                                           url: "",
+                                           wikiUrl: "https://bobs-burgers.fandom.com/wiki/The_Bleakening")
+    
+    static let sndModels8e6 = StoreNextDoorModel(id: UUID().hashValue,
+                                                 name: "\"The Bleakening Part 1\"",
+                                                 image: "https://bobsburgers-api.herokuapp.com/images/storeNextDoor/134.jpg",
+                                                 season: 8,
+                                                 episode: 6,
+                                                 episodeUrl: "",
+                                                 url: "https://bobsburgers-api.herokuapp.com/storeNextDoor/134")
+    
+    static let sndModels8e7 = StoreNextDoorModel(id: UUID().hashValue,
+                                                 name: "\"The Bleakening Part 2\"",
+                                                 image: "https://bobsburgers-api.herokuapp.com/images/storeNextDoor/135.jpg",
+                                                 season: 8,
+                                                 episode: 7,
+                                                 episodeUrl: "",
+                                                 url: "https://bobsburgers-api.herokuapp.com/storeNextDoor/134")
 }
 
 enum CategoriesEnum: CaseIterable {
     case characters
     case episodes
-//    case favorites
+    //    case favorites
     
     var imageStr: String {
         switch self {
         case .characters: return "bBCatCharacters_v1_1080"
         case .episodes: return "bBCatEpisodes_v1_1080"
-//        case .favorites: return "bBCatFavorites_v1_1080"
+            //        case .favorites: return "bBCatFavorites_v1_1080"
         }
     }
     
@@ -71,7 +107,7 @@ enum CategoriesEnum: CaseIterable {
         switch self {
         case .characters: return "Characters"
         case .episodes: return "Episodes"
-//        case .favorites: return "Favorites"
+            //        case .favorites: return "Favorites"
         }
     }
 }
@@ -81,7 +117,7 @@ enum ViewStateEnum {
     case characters
     case characterInfo
     case episodes
-//    case favorites
+    case episodeInfo
 }
 
 enum NetworkError: Error {
@@ -89,3 +125,5 @@ enum NetworkError: Error {
     case unsupportedImage
     case badUrl
 }
+
+

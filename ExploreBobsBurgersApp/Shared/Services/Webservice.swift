@@ -20,6 +20,12 @@ class Webservice {
         let (data, _) = try await URLSession.shared.data(from: url)
         return try JSONDecoder().decode([EpisodeModel].self, from: data)
     }
+    
+    func getAllStoreNextDoor() async throws -> [StoreNextDoorModel] {
+        guard let url = URL(string: Constants.EPI_URL) else { return [] }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try JSONDecoder().decode([StoreNextDoorModel].self, from: data)
+    }
 }
 
 extension URL {

@@ -18,11 +18,16 @@ class ViewModel: ObservableObject {
     @Published var showFavoriteCharacters = false
     
     @Published var allSeasons: [SeasonModel] = []
+    @Published var selectedEpisode: EpisodeModel?
+    
+    @Published var allStoreNextDoors:[StoreNextDoorModel] = []
     
     init() {
         Task {
-            await fetchAllCharacters()
+            //            await fetchAllCharacters()
             await fetchAllEpisodes()
+            await fetchAllStoreNextDoor()
+            
         }
     }
     
@@ -30,11 +35,6 @@ class ViewModel: ObservableObject {
         do {
             let allChars = try await Webservice().getAllCharacters()
             allCharacters = allChars
-//            for a in allChars {
-//                if let b = a.voicedBy {
-//                    print("\(a.name): \(b)")
-//                }
-//            }
         }
         catch {
             print(error)
@@ -44,8 +44,24 @@ class ViewModel: ObservableObject {
     func fetchAllEpisodes() async {
         do {
             var seasons = [SeasonModel]()
-            let allEpis = try await Webservice().getAllEpisodes()
-            guard let lastEipSeasonNum = allEpis.last?.season else { return }
+            //fetch Episodes
+            var allEpis = try await Webservice().getAllEpisodes()
+            
+            //remove duplicate season 8 episode 7 models
+            allEpis.removeAll { epiMod in
+                return epiMod.season == 8 && epiMod.episode == 7
+            }
+            
+            //add correct models
+            allEpis.append(Constants.epiModels8e6)
+            allEpis.append(Constants.epiModels8e7)
+            
+            //sort models and get last season number
+            guard let lastEipSeasonNum = allEpis.sorted(by: { a, b in
+                b.season > a.season
+            }).last?.season else { return }
+            
+            //loop thorugh season count and create SeasonModel
             for s in 1..<(lastEipSeasonNum + 1) {
                 let seasonEpis = allEpis.filter { epi in
                     epi.season == s
@@ -61,13 +77,42 @@ class ViewModel: ObservableObject {
             print(error)
         }
     }
-        
+    
+    func fetchAllStoreNextDoor() async {
+        do {
+            var allSnds = try await Webservice().getAllStoreNextDoor()
+            
+            allSnds.removeAll { snd in
+                snd.season == 8 && snd.episode == 7
+            }
+            
+            allSnds.append(Constants.sndModels8e7)
+            allSnds.append(Constants.sndModels8e6)
+            
+            allStoreNextDoors = allSnds
+
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    func filteredStoreNextDoorFromEpisode() -> [StoreNextDoorModel]? {
+        if selectedEpisode != nil {
+            return allStoreNextDoors.filter({ snd in
+                snd.episode == selectedEpisode!.episode && snd.season == selectedEpisode!.season
+            })
+        } else {
+            return nil
+        }
+    }
+    
     func clearCharacterSearch() {
         characterSearch = ""
     }
     
     func searchedCharacters(fetchedCharsEnts: [FavCharacterEnt]) -> [CharacterModel] {
-                
+        
         if showFavoriteCharacters {
             
             var favCharacters = [CharacterModel]()
@@ -102,15 +147,15 @@ class ViewModel: ObservableObject {
             char.unwrappedVoicedBy.lowercased().contains(searchText.lowercased())
         }
     }
-
+    
     func changeViews(category: CategoriesEnum) {
         switch category {
         case .characters:
             currentViewState = .characters
         case .episodes:
             currentViewState = .episodes
-//        case .favorites:
-//            currentViewState = .favorites
+            //        case .favorites:
+            //            currentViewState = .favorites
         }
     }
     

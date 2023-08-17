@@ -44,7 +44,8 @@ struct EpisodesHomeView: View {
                                 VStack(alignment: .leading, spacing: 10) {
                                     ForEach(vm.allSeasons[index].orderFilterEpis) { e in
                                         Button {
-                                            openUrl(e.wikiUrlObj)
+                                            vm.selectedEpisode = e
+                                            vm.currentViewState = .episodeInfo
                                         } label: {
                                             EpisodeCell(episode: e)
                                                 .padding(.horizontal)

@@ -10,6 +10,8 @@
 		B802DE712A8523E7001780E8 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802DE702A8523E7001780E8 /* CoreDataViewModel.swift */; };
 		B802DE752A854166001780E8 /* FavCharacterEnt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802DE732A854166001780E8 /* FavCharacterEnt+CoreDataClass.swift */; };
 		B802DE762A854166001780E8 /* FavCharacterEnt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802DE742A854166001780E8 /* FavCharacterEnt+CoreDataProperties.swift */; };
+		B81A696C2A8D253C00266FA7 /* StoreNextDoorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A696B2A8D253C00266FA7 /* StoreNextDoorModel.swift */; };
+		B81A696E2A8E707F00266FA7 /* EpisodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81A696D2A8E707F00266FA7 /* EpisodeInfoView.swift */; };
 		B83ED2AC2A80454C0095BD83 /* VoicedByModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */; };
 		B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */; };
 		B85BDAC42A73168300FDF93C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BDAC32A73168300FDF93C /* CategoryView.swift */; };
@@ -53,6 +55,8 @@
 		B802DE702A8523E7001780E8 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		B802DE732A854166001780E8 /* FavCharacterEnt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavCharacterEnt+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B802DE742A854166001780E8 /* FavCharacterEnt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavCharacterEnt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B81A696B2A8D253C00266FA7 /* StoreNextDoorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreNextDoorModel.swift; sourceTree = "<group>"; };
+		B81A696D2A8E707F00266FA7 /* EpisodeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoView.swift; sourceTree = "<group>"; };
 		B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedByModel.swift; sourceTree = "<group>"; };
 		B85BDAC02A730A9600FDF93C /* HomeViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLabel.swift; sourceTree = "<group>"; };
 		B85BDAC32A73168300FDF93C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				B85CBE262A8413C1004CE274 /* EpisodesHomeView.swift */,
 				B85CBE282A841BCD004CE274 /* EpisodeCell.swift */,
 				B85CBE2A2A842B33004CE274 /* EpisodeHeader.swift */,
+				B81A696D2A8E707F00266FA7 /* EpisodeInfoView.swift */,
 			);
 			path = EpisodesView;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				B83ED2AB2A80454C0095BD83 /* VoicedByModel.swift */,
 				B85CBE212A84096C004CE274 /* EpisodeModel.swift */,
 				B85CBE232A840B50004CE274 /* SeasonModel.swift */,
+				B81A696B2A8D253C00266FA7 /* StoreNextDoorModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			files = (
 				B86189A22A72F5310043AAD3 /* Persistence.swift in Sources */,
 				B802DE712A8523E7001780E8 /* CoreDataViewModel.swift in Sources */,
+				B81A696C2A8D253C00266FA7 /* StoreNextDoorModel.swift in Sources */,
 				B8B394582A74434F004489F8 /* CharactersHomeListCellView.swift in Sources */,
 				B8B394602A74453C004489F8 /* ViewModifiers.swift in Sources */,
 				B85BDAC12A730A9600FDF93C /* HomeViewLabel.swift in Sources */,
@@ -351,6 +358,7 @@
 				B86189A52A72F5310043AAD3 /* ExploreBobsBurgers.xcdatamodeld in Sources */,
 				B8E1493A2A786DAF00F079F5 /* CharacterInfoListStyle.swift in Sources */,
 				B8E1492F2A77ED7A00F079F5 /* ImageLoader.swift in Sources */,
+				B81A696E2A8E707F00266FA7 /* EpisodeInfoView.swift in Sources */,
 				B8878C242A7402200019F9A0 /* SwitchContainerView.swift in Sources */,
 				B8E149352A78561800F079F5 /* CharactersInfoView.swift in Sources */,
 				B85CBE292A841BCD004CE274 /* EpisodeCell.swift in Sources */,
