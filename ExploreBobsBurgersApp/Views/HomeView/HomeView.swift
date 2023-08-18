@@ -10,14 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var vm: ViewModel
-
+    
     var body: some View {
         ZStack {
             Image(Constants.imageBbBgBlueStr)
                 .resizable()
                 .ignoresSafeArea()
-            ScrollView {
-
+            
+            
             VStack {
                 ZStack(alignment: .top) {
                     Image(Constants.imageBbLogoStr)
@@ -29,17 +29,21 @@ struct HomeView: View {
                 }
                 .padding(.top, 30)
                 .padding()
-
-                    ForEach(CategoriesEnum.allCases, id: \.self) {cat in
-                        Button {
-                            withAnimation {
-                                vm.changeViews(category: cat)
-                            }
-                        } label: {
-                            CategoryView(category: cat)
+                
+                Spacer()
+                
+                ForEach(CategoriesEnum.allCases, id: \.self) {cat in
+                    Button {
+                        withAnimation {
+                            vm.changeViews(category: cat)
                         }
+                    } label: {
+                        CategoryView(category: cat)
+                            .padding(.vertical)
                     }
                 }
+                
+                Spacer()
             }
         }
     }
