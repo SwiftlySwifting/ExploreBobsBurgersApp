@@ -13,23 +13,65 @@ struct EpisodeInfoView: View {
 
     var body: some View {
         
-        VStack {
-            Button {
-                vm.currentViewState = .episodes
-            } label: {
-                Text("Back")
-            }
-            
-            Text("name: \(vm.selectedEpisode!.name)")
-            Text("season: \(vm.selectedEpisode!.season)")
-            Text("epi: \(vm.selectedEpisode!.episode)")
-            if vm.filteredStoreNextDoorFromEpisode() != nil {
-                ForEach(vm.filteredStoreNextDoorFromEpisode()!) { store in
-                    Text("SND Title: \(store.name!)")
-                    Text("SND season: \(store.season)")
-                    Text("SND epi: \(store.episode)")
+        VStack(spacing: 0) {
+            ZStack(alignment: .top) {
+                HStack {
+                    Button {
+                        vm.currentViewState = .episodes
+                    } label: {
+                        NavigationButton(label: Constants.sfBack, color: .white)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                
+                VStack {
+                    CharactersSubViewTitle(title: "S:\(vm.selectedEpisode!.season) E:\(vm.selectedEpisode!.episode)")
+                    CharactersSubViewTitle(title: vm.selectedEpisode!.name)
                 }
             }
+            .padding(.bottom, 30)
+            .background {
+                Color.bBBlue.ignoresSafeArea()
+            }
+            
+            ScrollView {
+                VStack(spacing: 20) {
+                    if vm.selectedEpisode!.productionCode != nil {
+                        HStack {
+                            Text("Production Code:")
+                            Spacer()
+                            Text(vm.selectedEpisode!.productionCode!)
+                        }
+                    }
+                    
+                    if vm.selectedEpisode!.airDate != nil {
+                        HStack {
+                            Text("Air Date:")
+                            Spacer()
+                            Text(vm.selectedEpisode!.airDate!)
+                        }
+                    }
+
+                    HStack {
+                        Text("Total Viewers:")
+                        Spacer()
+                        Text(vm.selectedEpisode!.totalViewers)
+                    }
+                    
+                    if vm.filteredStoreNextDoorFromEpisode() != nil {
+                        ForEach(vm.filteredStoreNextDoorFromEpisode()!) {snd in
+                            Text(snd.name!)
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top)
+
+            }
+            .font(.appBody)
+            
         }
     }
 }
