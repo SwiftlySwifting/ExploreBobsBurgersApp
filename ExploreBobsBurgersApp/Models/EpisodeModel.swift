@@ -18,8 +18,11 @@ struct EpisodeModel: Identifiable, Codable {
     var url: String
     var wikiUrl: String
     
-    var wikiUrlObj: URL {
-        let unwrapped = URL(string: wikiUrl)!
-        return unwrapped
+    var wikiUnwrappedUrl: URL {
+        if let unwrapped = URL(string: wikiUrl) {
+            return unwrapped
+        } else {
+            return URL(string: "https://bobs-burgers.fandom.com/wiki/Bob%27s_Burgers_Wiki")!
+        }
     }
 }

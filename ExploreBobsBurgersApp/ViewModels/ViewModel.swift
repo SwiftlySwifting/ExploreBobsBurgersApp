@@ -90,8 +90,7 @@ class ViewModel: ObservableObject {
             allSnds.append(Constants.sndModels8e6)
             
             allStoreNextDoors = allSnds
-
-            
+                        
         } catch {
             print(error)
         }
@@ -224,6 +223,14 @@ class ViewModel: ObservableObject {
                 return true
             } else { return false }
         } else { return false }
+    }
+    
+    func isStoreNextDoorValid() -> Bool {
+        if filteredStoreNextDoorFromEpisode() != nil && !filteredStoreNextDoorFromEpisode()!.isEmpty {
+            return true
+        } else {
+           return false
+        }
     }
     
 }

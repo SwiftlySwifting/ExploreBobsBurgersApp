@@ -10,6 +10,7 @@ import SwiftUI
 struct EpisodeInfoView: View {
     
     @EnvironmentObject private var vm: ViewModel
+    @Environment(\.openURL) private var openUrl
 
     var body: some View {
         
@@ -23,6 +24,13 @@ struct EpisodeInfoView: View {
                     }
                     
                     Spacer()
+                    
+                    Button {
+                        openUrl(vm.selectedEpisode!.wikiUnwrappedUrl)
+                    } label: {
+                        NavigationButton(label: Constants.sfWiki, color: .white)
+                    }
+
                 }
                 .padding(.horizontal)
                 
@@ -60,9 +68,22 @@ struct EpisodeInfoView: View {
                         Text(vm.selectedEpisode!.totalViewers)
                     }
                     
-                    if vm.filteredStoreNextDoorFromEpisode() != nil {
-                        ForEach(vm.filteredStoreNextDoorFromEpisode()!) {snd in
-                            Text(snd.name!)
+                    if vm.isStoreNextDoorValid() {
+                        VStack(spacing: 0) {
+                            Divider()
+                                .padding(.bottom)
+                            Text("Store Next Door")
+                            ForEach(vm.filteredStoreNextDoorFromEpisode()!) {snd in
+                                if snd.image != nil {
+                                    UrlImageStoreNextDoor(urlString: snd.image!)
+                                        .scaledToFill()
+                                        .background {
+                                            Color.white
+                                        }
+                                        .padding()
+                                        .padding(.horizontal)
+                                }
+                            }
                         }
                     }
                 }

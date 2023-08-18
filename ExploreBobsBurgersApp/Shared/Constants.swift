@@ -21,11 +21,13 @@ struct Constants {
     static let sfWiki = "safari"
     static let sfMagnifyingglass = "magnifyingglass"
     static let sfClearSearch = "x.circle"
+    static let sfStoreNextDoor = "square.circle"
     
     static let BASE_URL = "https://bobsburgers-api.herokuapp.com/"
     static let CHAR_URL = BASE_URL + "characters"
     static let IMAGE_URL = BASE_URL + "images/characters/"
     static let EPI_URL = BASE_URL + "episodes"
+    static let SND_URL = BASE_URL + "storeNextDoor/"
     
     static let cdCharFavEntStr = "FavCharacterEnt"
     
