@@ -26,13 +26,10 @@ class ImageLoader: ObservableObject {
         guard let url = URL(string: urlString) else {
             throw NetworkError.badRequest
         }
-//        print(url.lastPathComponent)
 
         let request = URLRequest(url: url)
         
-        //check the cache
-        //capital "S" becase cache is static
-                
+        //check the cache                
         if let cachedImage = cache.object(forKey: url.absoluteString as NSString) {
             uiImage = cachedImage
         }

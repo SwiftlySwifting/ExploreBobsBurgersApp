@@ -95,13 +95,11 @@ struct Constants {
 enum CategoriesEnum: CaseIterable {
     case characters
     case episodes
-    //    case favorites
     
     var imageStr: String {
         switch self {
         case .characters: return "bBCatCharacters_v1_1080"
         case .episodes: return "bBCatEpisodes_v1_1080"
-            //        case .favorites: return "bBCatFavorites_v1_1080"
         }
     }
     
@@ -109,7 +107,6 @@ enum CategoriesEnum: CaseIterable {
         switch self {
         case .characters: return "Characters"
         case .episodes: return "Episodes"
-            //        case .favorites: return "Favorites"
         }
     }
 }

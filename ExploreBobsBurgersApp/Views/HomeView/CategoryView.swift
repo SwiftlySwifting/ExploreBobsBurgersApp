@@ -20,7 +20,6 @@ struct CategoryView: View {
 
             HomeViewLabel(label: category.label)
                 .offset(y: 15)
-
         }
         .padding()
     }

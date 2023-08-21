@@ -24,17 +24,15 @@ class ViewModel: ObservableObject {
     
     init() {
         Task {
-            //            await fetchAllCharacters()
+            await fetchAllCharacters()
             await fetchAllEpisodes()
             await fetchAllStoreNextDoor()
-            
         }
     }
     
     func fetchAllCharacters() async {
         do {
-            let allChars = try await Webservice().getAllCharacters()
-            allCharacters = allChars
+            allCharacters = try await Webservice().getAllCharacters()
         }
         catch {
             print(error)
@@ -147,14 +145,12 @@ class ViewModel: ObservableObject {
         }
     }
     
-    func changeViews(category: CategoriesEnum) {
+    func changeCategoryViews(category: CategoriesEnum) {
         switch category {
         case .characters:
             currentViewState = .characters
         case .episodes:
             currentViewState = .episodes
-            //        case .favorites:
-            //            currentViewState = .favorites
         }
     }
     

@@ -16,8 +16,6 @@ struct HomeView: View {
             Image(Constants.imageBbBgBlueStr)
                 .resizable()
                 .ignoresSafeArea()
-            
-            
             VStack {
                 ZStack(alignment: .top) {
                     Image(Constants.imageBbLogoStr)
@@ -35,7 +33,7 @@ struct HomeView: View {
                 ForEach(CategoriesEnum.allCases, id: \.self) {cat in
                     Button {
                         withAnimation {
-                            vm.changeViews(category: cat)
+                            vm.changeCategoryViews(category: cat)
                         }
                     } label: {
                         CategoryView(category: cat)

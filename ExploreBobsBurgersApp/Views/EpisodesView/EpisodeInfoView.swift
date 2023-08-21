@@ -15,7 +15,7 @@ struct EpisodeInfoView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            ZStack(alignment: .top) {
+            VStack(spacing: 0) {
                 HStack {
                     Button {
                         vm.currentViewState = .episodes
@@ -25,20 +25,34 @@ struct EpisodeInfoView: View {
                     
                     Spacer()
                     
+                    CharactersSubViewTitle(title: "S:\(vm.selectedEpisode!.season) E:\(vm.selectedEpisode!.episode)")
+                    
+                    Spacer()
+                                        
+                    Button {
+                        Task {
+                            vm.currentViewState = .home
+                        }
+                    } label: {
+                        NavigationButton(label: Constants.sfHome, color: .white)
+                    }
+                }
+                
+                CharactersSubViewTitle(title: vm.selectedEpisode!.name)
+                
+                HStack {
+                    
                     Button {
                         openUrl(vm.selectedEpisode!.wikiUnwrappedUrl)
                     } label: {
                         NavigationButton(label: Constants.sfWiki, color: .white)
                     }
-
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
                 
-                VStack {
-                    CharactersSubViewTitle(title: "S:\(vm.selectedEpisode!.season) E:\(vm.selectedEpisode!.episode)")
-                    CharactersSubViewTitle(title: vm.selectedEpisode!.name)
-                }
             }
+            .padding(.horizontal)
             .padding(.bottom, 30)
             .background {
                 Color.bBBlue.ignoresSafeArea()

@@ -21,7 +21,6 @@ struct CharactersInfoView: View {
             HStack(alignment: .top) {
                 Button {
                     vm.currentViewState = .characters
-//                    cdVM.clearCharacter()
                 } label: {
                     NavigationButton(label: Constants.sfBack, color: .white)
                 }
@@ -34,7 +33,6 @@ struct CharactersInfoView: View {
                 Button {
                     Task {
                         vm.currentViewState = .home
-//                        cdVM.clearCharacter()
                     }
                 } label: {
                     NavigationButton(label: Constants.sfHome, color: .white)
